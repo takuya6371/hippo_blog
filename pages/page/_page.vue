@@ -1,5 +1,6 @@
 <template>
   <div>
+  <p>vdg</p>
     <nuxtdown-body class="body" :body="page.body"/>
   </div>
 </template>
@@ -19,6 +20,8 @@ export default {
     };
   },
   asyncData: async ({ app, route, payload }) => {
+console.log(route)
+console.log(app)
     return {
       page: (await app.$content("/pages").get(route.path)) || payload
     };
