@@ -1,5 +1,6 @@
 <template>
   <div>
+    <globalheader/>
     <nuxt/>
     <nav>
       <ul>
@@ -7,13 +8,23 @@
           <nuxt-link :to="'/page-1'">Page 1</nuxt-link>
         </li>
         <li>
-          <nuxt-link :to="'/page-2'">Page 2</nuxt-link>
+          <nuxt-link :to="'/tit-3'">Page 2</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link :to="'/2019-05-03-njin'">Page 3</nuxt-link>
         </li>
       </ul>
     </nav>
   </div>
 </template>
-
+<script>
+import globalheader from '~/components/globalheader.vue'
+export default {
+  components:{
+    globalheader
+  },
+}
+</script>
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
