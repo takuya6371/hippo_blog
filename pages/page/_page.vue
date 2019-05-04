@@ -21,10 +21,10 @@ export default {
     };
   },
   asyncData: async ({ app, route, payload }) => {
-console.log(route)
-console.log(app)
+    console.log(route)
+    //console.log("fuck "+app.$content("/pages").get(route.path))
     return {
-      page: (await app.$content("/pages").get(route.path)) || payload
+      page: (await app.$content("/travel").get(route.path)) || payload
     };
   }
 };

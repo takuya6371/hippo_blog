@@ -16,13 +16,31 @@
       <p class="main_text title_text">5</p>
       <p class="main_text title_text">6</p>
     </div>
+  <p>記事一覧</p>
   </section>
 </template>
 
 <script>
-
-
+import axios from 'axios'
 export default{
+  data(){
+      return{
+          res: '',
+          contents: [],
+          genre: '',
+      }
+  },
+
+asyncData: async ({ app, route, payload }) => {
+  var aa = axios.get(`/content-api/it`)
+  console.log(aa)
+  console.log(app)
+  //this.genre = this.$route.query.genre
+  //console.log(this.genre)
+  return {
+      //page: (await app.$content("/pages").get(route.path)) || payload
+  };
+},
 
 }
 </script>

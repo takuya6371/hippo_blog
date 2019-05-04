@@ -7,10 +7,10 @@
     </td>
     <td class="header_list">
     <ul>
-      <li><nuxt-link class="header_list" to="/">Home</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'', 'query':{'post':'travel'}}">Travel</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'/page-1', 'query':{'post':'outdoor'}}">Outdoor</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'/post/list', 'query':{'post':'it'}}">IT</nuxt-link></li>
+      <li><nuxt-link @click.native="categoryClear()" class="header_list" to="/">Home</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('travel')" class="header_list" :to="{'path':'/id/list', 'query':{'id':'travel'}}">Travel</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('outdoor')" class="header_list" :to="{'path':'/id/list', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('it')" class="header_list" :to="{'path':'/id/list', 'query':{'id':'it'}}">IT</nuxt-link></li>
     </ul>
     </td>
     </tr>
@@ -28,10 +28,10 @@
     export default {
       methods: {
         categoryClear(){
-          //this.$store.commit('categoryClear')
+          this.$store.commit('categoryClear')
         },
         setCategry(category){
-          //this.$store.commit('setBlogCategory1',category)
+          this.$store.commit('setBlogCategory1',category)
         },
       },
     }

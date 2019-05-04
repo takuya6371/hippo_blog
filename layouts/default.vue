@@ -5,7 +5,7 @@
     <nav>
       <ul>
         <li>
-          <nuxt-link :to="'/page-1'">Page 1</nuxt-link>
+          <nuxt-link :to="'/20190503-test'">Page 1</nuxt-link>
         </li>
         <li>
           <nuxt-link :to="'/tit-3'">Page 2</nuxt-link>
@@ -19,6 +19,7 @@
 </template>
 <script>
 import globalheader from '~/components/globalheader.vue'
+import axios from 'axios'
 export default {
   components:{
     globalheader

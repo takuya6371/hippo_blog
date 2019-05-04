@@ -8,6 +8,16 @@ module.exports = {
       browserBaseURL
     };
   },
+  routes: [
+		{
+			path: "/",
+			name: "index"
+		},
+		{
+			path: "/:list",
+			name: "list"
+    }
+  ],
   content: [
     [
       "pages",
@@ -16,6 +26,30 @@ module.exports = {
         permalink: "/:slug",
         isPost: false
       }
-    ]
+    ],
+    [
+      "it",
+      {
+        page: "/page/_page",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+    [
+      "outdoor",
+      {
+        page: "/page/_page",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+    [
+      "travel",
+      {
+        page: "/page/_page",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
   ]
 };
