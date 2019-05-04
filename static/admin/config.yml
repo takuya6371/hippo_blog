@@ -13,6 +13,7 @@ collections:
     slug: "{{year}}{{month}}{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: Title, name: title, widget: string, required: true}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
       - {label: "Tag1", name: "tag1", widget: "string", required: true}
       - {label: "Tag2", name: "tag2", widget: "string", required: false}
       - {label: "Tag3", name: "tag3", widget: "string", required: false}
@@ -27,6 +28,7 @@ collections:
     slug: "{{year}}{{month}}{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: Title, name: title, widget: string, required: true}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
       - {label: "Tag1", name: "tag1", widget: "string", required: true}
       - {label: "Tag2", name: "tag2", widget: "string", required: false}
       - {label: "Tag3", name: "tag3", widget: "string", required: false}
@@ -34,9 +36,9 @@ collections:
       - {label: Publish date, name: date, widget: "datetime"}
       - {label: Content, name: body, widget: "markdown"}
 
-  - name: "activity" # Used in routes, e.g., /admin/collections/blog
-    label: "activity" # Used in the UI
-    folder: "content/activity" # The path to the folder where the documents are stored
+  - name: "outdoor" # Used in routes, e.g., /admin/collections/blog
+    label: "outdoor" # Used in the UI
+    folder: "content/outdoor" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}{{month}}{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
