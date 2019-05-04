@@ -23,19 +23,14 @@ export default {
       ]
     };
   },
-  asyncData: async ({ app, route, payload }) => {
+  asyncData: async ({ app, route, payload,store }) => {
     console.log(route)
     //console.log("fuck "+app.$content("/pages").get(route.path))
     return {
-      page: (await app.$content("/travel").get(route.path)) || payload
+      page: (await app.$content(store.state.blog_category1).get(route.path)) || payload
     };
   }
 };
 </script>
 <style>
-.content_div{
-  width:70%;
-  margin-left: 15px;
-}
-
 </style>

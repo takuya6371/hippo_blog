@@ -16,35 +16,37 @@
       <p class="main_text title_text">Tanzania<br>Kilimanjaro</p>
       <p class="main_text title_text">Lebanon<br>Baalbek</p>
     </div>
-  <p>記事一覧</p>
+    <div class="content_div">
+      <p class="top_title">このブログについて</p>
+      <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>
+    </div>
+    <div>
+      <globalnav/>
+    </div>
   </section>
 </template>
 
 <script>
+import globalnav from '~/components/globalnav.vue'
 import axios from 'axios'
 export default{
-  data(){
-      return{
-          res: '',
-          contents: [],
-          genre: '',
-      }
+  components:{
+    globalnav
   },
-
-asyncData: async ({ app, route, payload }) => {
-  var aa = axios.get(`/content-api/it`)
-  console.log(aa)
-  console.log(app)
-  //this.genre = this.$route.query.genre
-  //console.log(this.genre)
-  return {
-      //page: (await app.$content("/pages").get(route.path)) || payload
-  };
-},
-
+  data(){
+    return{
+        res: '',
+        contents: [],
+        genre: '',
+    }
+  },
 }
 </script>
 <style>
+.top_title{
+  text-align:center;
+  font-size:23px;
+}
 .container{
   width: 75% !important;
   margin-left: 10px;

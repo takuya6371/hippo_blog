@@ -1,25 +1,6 @@
 <template>
   <div>
     <globalheader/>
-    <div class="nav_dev">
-      <div class="latest_nav">
-      <nav>
-      <p>最新記事</p>
-        <ul>
-          <li>
-            <nuxt-link :to="'/20190503-test'">Page 1</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link :to="'/tit-3'">Page 2</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link :to="'/2019-05-03-njin'">Page 3</nuxt-link>
-          </li>
-        </ul>
-      </nav>
-      </div>
-    </div>
-
     <div>
       <nuxt/>
     </div>
@@ -97,5 +78,11 @@ html {
 }
 .latest_nav{
   border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.content_div{
+  width:70%;
+  margin-left: 15px;
+  height:300px;
+  float: left;
 }
 </style>

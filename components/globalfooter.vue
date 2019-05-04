@@ -2,18 +2,26 @@
   <div class="main_footer">
     <div class="profile_dev">
       <table>
+      <tbody>
         <tr>
           <td>
-
+            <p>Profile</p>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <img class="profile_img" src="./profile.jpg">
           </td>
           <td class="profile_comment">
-          <p align="">エンジニア、バックパッカー、野生児</p>
-          <p>数年周期で海外滞在もしくは旅行、日本で仕事を繰り返している。アフリカのカバのいる村で２年暮らしていたのでカバに強い思い入れあり。</p>
+            <p>エンジニア、バックパッカー、野生児</p>
+            <p>数年周期で海外滞在もしくは旅行、日本で仕事を繰り返している。アフリカのカバのいる村で２年暮らしていたのでカバに強い思い入れあり。</p>
           </td>
         </tr>
+      </tbody>
       </table>
-      </div>
+    </div>
   </div>
 </template>
 
