@@ -1,8 +1,11 @@
 <template>
   <div>
-  <div style="height:117px;"></div>
-  <p>vdg</p>
-    <nuxtdown-body class="body" :body="page.body"/>
+    <div style="height:117px;"></div>
+      <div class="content_div">
+        <p class="content_title">{{page.title}}</p><br>
+          <nuxtdown-body class="body" :body="page.body"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,3 +32,10 @@ export default {
   }
 };
 </script>
+<style>
+.content_div{
+  width:70%;
+  margin-left: 15px;
+}
+
+</style>

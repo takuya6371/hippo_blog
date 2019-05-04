@@ -1,28 +1,38 @@
 <template>
   <div>
     <globalheader/>
-    <nuxt/>
-    <nav>
-      <ul>
-        <li>
-          <nuxt-link :to="'/20190503-test'">Page 1</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="'/tit-3'">Page 2</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="'/2019-05-03-njin'">Page 3</nuxt-link>
-        </li>
-      </ul>
-    </nav>
+    <div class="nav_dev">
+      <div class="latest_nav">
+      <nav>
+      <p>最新記事</p>
+        <ul>
+          <li>
+            <nuxt-link :to="'/20190503-test'">Page 1</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link :to="'/tit-3'">Page 2</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link :to="'/2019-05-03-njin'">Page 3</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+      </div>
+    </div>
+
+    <div>
+      <nuxt/>
+    </div>
+    <globalfooter/>
   </div>
 </template>
 <script>
 import globalheader from '~/components/globalheader.vue'
+import globalfooter from '~/components/globalfooter.vue'
 import axios from 'axios'
 export default {
   components:{
-    globalheader
+    globalheader,globalfooter
   },
 }
 </script>
@@ -73,5 +83,19 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.content_title{
+  text-align: center;
+  font-size: 35px;
+  font-weight: 600;
+}
+.nav_dev{
+  #border: 1px solid rgba(0, 0, 0, 0.125);
+  float: right;
+  height:300px;
+  margin-top:110px;
+}
+.latest_nav{
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 </style>

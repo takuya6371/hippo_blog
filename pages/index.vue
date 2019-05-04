@@ -9,12 +9,12 @@
       <div class="main_img main_img_6" style=""></div>
     </div>
     <div class="title_text_dev">
-      <p class="main_text title_text">East tibet</p>
-      <p class="main_text title_text">2</p>
-      <p class="main_text title_text">3</p>
-      <p class="main_text title_text">4</p>
-      <p class="main_text title_text">5</p>
-      <p class="main_text title_text">6</p>
+      <p class="main_text title_text">East Tibet<br>Yaqing</p>
+      <p class="main_text title_text">Namibia<br>Rupara combined school</p>
+      <p class="main_text title_text">Phillipine<br>Bacolod</p>
+      <p class="main_text title_text">Nepal<br>Machhapuchhre</p>
+      <p class="main_text title_text">Tanzania<br>Kilimanjaro</p>
+      <p class="main_text title_text">Lebanon<br>Baalbek</p>
     </div>
   <p>記事一覧</p>
   </section>
@@ -125,11 +125,11 @@ asyncData: async ({ app, route, payload }) => {
 
 }
 .main_img_5 {
-    background-image: url('../components/title_tibet.jpg');
+    background-image: url('../components/title_kilimanjaro.jpg');
 
 }
 .main_img_6 {
-    background-image: url('../components/title_tibet.jpg');
+    background-image: url('../components/title_lebanon.jpg');
 
 }
 
