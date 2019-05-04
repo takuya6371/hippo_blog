@@ -22,6 +22,9 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  plugins: [
+    '~plugins/scroll.js'
+  ],
   /*
   ** Customize the progress bar color
   */

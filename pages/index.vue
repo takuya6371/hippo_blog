@@ -40,6 +40,9 @@ export default{
         genre: '',
     }
   },
+  created: function() {
+    this.$store.commit('setTopFlg',true)
+  },
 }
 </script>
 <style>

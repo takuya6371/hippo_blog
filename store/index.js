@@ -1,5 +1,6 @@
 import axios from 'axios'
 export const state = () => ({
+    is_top_page: true,
     blog_id: null,
     blog_contents: [],
     blog_category1: null,
@@ -18,7 +19,11 @@ export const actions = {
   }
 }
 export const mutations = {
-    setBlogContents(state,contents) {
+  setTopFlg(state,flg) {
+    state.is_top_page = flg
+    console.log("top:"+state.is_top_page)
+    },
+  setBlogContents(state,contents) {
       axios.get(blog_url+path).then((response) => {
         state.blog_contents = JSON.stringify(response.data)
         state.blog_contents = JSON.parse(state.blog_contents)
@@ -46,9 +51,9 @@ export const mutations = {
       console.log("category3:"+state.blog_category3)
       },
     categoryClear(state) {
-      state.blog_category1 = ''
-      state.blog_category2 = ''
-      state.blog_category3 = ''
+      state.blog_category1 = null
+      state.blog_category2 = null
+      state.blog_category3 = null
       console.log("category clear")
     },
   }

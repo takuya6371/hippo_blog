@@ -24,12 +24,15 @@ export default {
     };
   },
   asyncData: async ({ app, route, payload,store }) => {
-    console.log(route)
+    console.log(store.state.blog_category1)
     //console.log("fuck "+app.$content("/pages").get(route.path))
     return {
       page: (await app.$content(store.state.blog_category1).get(route.path)) || payload
     };
-  }
+  },
+  created: function(){
+    this.$store.commit('setTopFlg',false)
+  },
 };
 </script>
 <style>

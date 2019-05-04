@@ -1,6 +1,6 @@
 <template>
   <div class="main-header">
-    <table class="header_table">
+    <table v-bind:class="{ 'header_table_top': isTop, 'header_table_not_top': isNotTop }" class="header_table" v-scroll="handleScroll">
     <tbody>
     <tr>
     <td class="header_title">
@@ -25,16 +25,54 @@
 </template>
 
 <script>
-    export default {
-      methods: {
-        categoryClear(){
-          this.$store.commit('categoryClear')
-        },
-        setCategry(category){
-          this.$store.commit('setBlogCategory1',category)
-        },
-      },
+export default {
+  data(){
+    return{
+      isTop: true,
+      isNotTop: false,
     }
+  },
+  computed: {
+      top_flg() {
+        return this.$store.state.is_top_page
+      },
+  },
+  watch: {
+      top_flg(val) {
+          if(this.$store.state.is_top_page){
+            this.isNotTop = false
+            this.isTop = true
+          }else{
+            this.isNotTop = true
+            this.isTop = false
+          }
+          return this.$store.state.is_top_page
+      },
+  },
+
+  methods: {
+    categoryClear(){
+      this.$store.commit('categoryClear')
+    },
+    setCategry(category){
+      this.$store.commit('setBlogCategory1',category)
+    },
+    handleScroll: function(evt, el) {
+      console.log(window.scrollY);
+      if(this.$store.state.is_top_page){
+        if (window.scrollY  == 0) {
+          this.isNotTop = false
+          this.isTop = true
+        }
+        if (window.scrollY > 30) {
+          this.isNotTop = true
+          this.isTop = false
+        }
+      }
+      //return window.scrollY > 100;
+    },
+  },
+}
 </script>
 <style scoped>
 a.header_list{
@@ -46,19 +84,25 @@ a.header_list{
   text-align:center;
   width:100%;
 }
-.header_table{
+.header_table_{
   width:100%;
   height: 80px;
   position: fixed;
-  background-color: rgba(0,0,0,0.4);
+  #background-color: rgba(0,0,0,0.4);
   z-index: 1000;
+}
+.header_table_top{
+  background-color: rgba(0,0,0,0.4);
+}
+.header_table_not_top{
+  background-color: rgba(0,0,0,0.9);
 }
 .header_title{
   width:30%;
 }
 td.header_list{
   width:1%;
-  border-bottom: 1px dotted #575a5d;
+  #border-bottom: 1px dotted #575a5d;
 }
 
 .main-header {

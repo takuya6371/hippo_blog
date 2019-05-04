@@ -6,7 +6,7 @@
         <p class="genre_title">{{genre.genre}}</p>
         <ul>
           <li v-for="post in genre.body" :key="post.title">
-            <nuxt-link @click.native="setCategry(genre.genre)" class="" :to="post.permalink">
+            <nuxt-link @click.native="toPost(genre.genre,post.permalink)" class="" :to="'#'">
               {{post.title}}
             </nuxt-link>
           </li>
@@ -60,8 +60,10 @@ export default {
   categoryClear(){
     this.$store.commit('categoryClear')
   },
-  setCategry(category){
+  toPost(category,link){
+    console.log("fgbghg")
     this.$store.commit('setBlogCategory1',category)
+    this.$router.push(link);
   },
 },
 
