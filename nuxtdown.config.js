@@ -20,14 +20,6 @@ module.exports = {
   ],
   content: [
     [
-      "pages",
-      {
-        page: "/page/_page",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
-    [
       "it",
       {
         page: "/page/_page",
