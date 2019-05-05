@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "travel" # Used in routes, e.g., /admin/collections/blog
+    label: "travel" # Used in the UI
+    folder: "content/travel" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minutes}}{{seconds}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: Title, name: title, widget: string, required: true}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Tag1", name: "tag1", widget: "string", required: true}
+      - {label: "Tag2", name: "tag2", widget: "string", required: false}
+      - {label: "Tag3", name: "tag3", widget: "string", required: false}
+      - {label: Description, name: description, widget: text, required: false}
+      - {label: Publish date, name: date, widget: "datetime"}
+      - {label: Content, name: body, widget: "markdown"}
+
+  - name: "it" # Used in routes, e.g., /admin/collections/blog
+    label: "it" # Used in the UI
+    folder: "content/it" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minutes}}{{seconds}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: Title, name: title, widget: string, required: true}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Tag1", name: "tag1", widget: "string", required: true}
+      - {label: "Tag2", name: "tag2", widget: "string", required: false}
+      - {label: "Tag3", name: "tag3", widget: "string", required: false}
+      - {label: Description, name: description, widget: text, required: false}
+      - {label: Publish date, name: date, widget: "datetime"}
+      - {label: Content, name: body, widget: "markdown"}
+
+  - name: "outdoor" # Used in routes, e.g., /admin/collections/blog
+    label: "outdoor" # Used in the UI
+    folder: "content/outdoor" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minutes}}{{seconds}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: Title, name: title, widget: string, required: true}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
+      - {label: "Tag1", name: "tag1", widget: "string", required: true}
+      - {label: "Tag2", name: "tag2", widget: "string", required: false}
+      - {label: "Tag3", name: "tag3", widget: "string", required: false}
+      - {label: Description, name: description, widget: text, required: false}
+      - {label: Publish date, name: date, widget: "datetime"}
+      - {label: Content, name: body, widget: "markdown"}
