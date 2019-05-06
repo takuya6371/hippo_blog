@@ -1,7 +1,7 @@
 module.exports = {
   modules: ["nuxtdown"],
   router: {
-    //base: '~/'
+    base: '/'
   },
   env: {
     BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
@@ -14,7 +14,7 @@ module.exports = {
     htmlAttrs: {
       lang: 'en',
     },
-    title: "My Website",
+    title: "Hippo Blog",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },

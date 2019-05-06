@@ -1,7 +1,7 @@
 module.exports = {
   api: function(isStatic) {
     const baseURL = "http://localhost:3000";
-    const browserBaseURL = !isStatic ? "" : process.env.BASE_URL;
+    const browserBaseURL = !isStatic ? "/" : process.env.BASE_URL;
     //const browserBaseURL = !isStatic ? "" : "~/";
     console.log("ddd"+isStatic+"  "+browserBaseURL)
     //const baseDir = process.env.BASE_DIR || ''

@@ -29,7 +29,7 @@ export default {
         genres: [],
     }
   },
-  created: function() {
+  /*created: function() {
     axios.get(this.$store.state.blog_url).then((res1) => {
       var data = res1
       console.log(data)
@@ -45,6 +45,7 @@ export default {
         this.genres.push(genres_tmp[i])
       }
       genres_tmp.forEach(res => {
+        */
 /*
         var data_tmp = []
         var data_genre_tmp = []
@@ -62,15 +63,16 @@ export default {
           })
           //this.genres.push(res.slice(1))
         }
-        */
+        
       });
       console.log(this.genres)
       //this.genres = data.data['content-endpoints'].slice(1)
 
     })
   },
+*/
 
-  /*asyncData: async ({ app, route, payload,store }) => {
+  asyncData: async ({ app, route }) => {
     console.log("aa"+app)
     console.log(route)
     //var aa = (await app.$content("it").get("/"))
@@ -78,6 +80,23 @@ export default {
 
 
     (await app.$content("").get("/")).then((res1) => {
+
+      var data = res1
+      console.log(data)
+      console.log(data.data)
+      var genres_tmp = data.data
+      genres_tmp.sort(function(a,b){
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+      return 0;
+      });
+      console.log(genres_tmp)
+      for(var i = 0; i < 5; i++){
+        this.genres.push(genres_tmp[i])
+      }
+    });
+  },
+/*
       var data = res1
       //console.log(data.data['content-endpoints'])
       console.log(data)
@@ -103,8 +122,9 @@ export default {
       console.log(this.genres)
       //this.genres = data.data['content-endpoints'].slice(1)
 
-    })
-  },*/
+    });
+    */
+ // },
   methods: {
   categoryClear(){
     this.$store.commit('categoryClear')
