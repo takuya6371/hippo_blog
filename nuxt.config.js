@@ -1,7 +1,11 @@
 module.exports = {
   modules: ["nuxtdown"],
+  router: {
+    //base: '~/'
+  },
   env: {
     BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
+    //BASE_URL: ''
   },
   /*
   ** Headers of the page
@@ -20,7 +24,7 @@ module.exports = {
         content: "Welcome to my website."
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "./favicon.ico" }]
   },
   plugins: [
     '~plugins/scroll.js'

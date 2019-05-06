@@ -27,7 +27,7 @@ export const mutations = {
       axios.get(blog_url+path).then((response) => {
         state.blog_contents = JSON.stringify(response.data)
         state.blog_contents = JSON.parse(state.blog_contents)
-        console.log("fuck"+state.blog_contents)
+        console.log("set content"+state.blog_contents)
       })
     },
     setBlogId(state,id) {

@@ -2,10 +2,11 @@
   <div class="main_nav">
     <div class="latest_nav">
       <p>最新記事</p><br>
-      <div v-for="genre in genres">
+ <!--     <div v-for="genre in genres">
         <p class="genre_title">{{genre.genre}}</p>
+-->
         <ul>
-          <li v-for="post in genre.body" :key="post.title">
+          <li v-for="post in genres" :key="post.title">
             <nuxt-link @click.native="toPost(genre.genre,post.permalink)" class="" :to="'#'">
               {{post.title}}
             </nuxt-link>
@@ -31,7 +32,55 @@ export default {
   created: function() {
     axios.get(this.$store.state.blog_url).then((res1) => {
       var data = res1
-      console.log(data.data['content-endpoints'])
+      console.log(data)
+      console.log(data.data)
+      var genres_tmp = data.data
+      genres_tmp.sort(function(a,b){
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+      return 0;
+      });
+      console.log(genres_tmp)
+      for(var i = 0; i < 5; i++){
+        this.genres.push(genres_tmp[i])
+      }
+      genres_tmp.forEach(res => {
+/*
+        var data_tmp = []
+        var data_genre_tmp = []
+        if(res != '/pages'){
+          data_tmp.genre = res.slice(1)
+          axios.get(this.$store.state.blog_url+res.slice(1)).then((res2) => {
+            console.log(res2.data)
+            res2.data.forEach(function(res,num) {
+              if(num < 3){
+                data_genre_tmp.push(res)
+              }
+            })
+            data_tmp.body = data_genre_tmp
+            this.genres.push(data_tmp)
+          })
+          //this.genres.push(res.slice(1))
+        }
+        */
+      });
+      console.log(this.genres)
+      //this.genres = data.data['content-endpoints'].slice(1)
+
+    })
+  },
+
+  /*asyncData: async ({ app, route, payload,store }) => {
+    console.log("aa"+app)
+    console.log(route)
+    //var aa = (await app.$content("it").get("/"))
+    //console.log(aa)
+
+
+    (await app.$content("").get("/")).then((res1) => {
+      var data = res1
+      //console.log(data.data['content-endpoints'])
+      console.log(data)
       var genres_tmp = data.data['content-endpoints']
       genres_tmp.forEach(res => {
         var data_tmp = []
@@ -55,7 +104,7 @@ export default {
       //this.genres = data.data['content-endpoints'].slice(1)
 
     })
-  },
+  },*/
   methods: {
   categoryClear(){
     this.$store.commit('categoryClear')

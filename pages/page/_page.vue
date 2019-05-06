@@ -25,6 +25,8 @@ export default {
   },
   asyncData: async ({ app, route, payload,store }) => {
     console.log(store.state.blog_category1)
+    console.log(app)
+    console.log(route)
     //console.log("fuck "+app.$content("/pages").get(route.path))
     return {
       page: (await app.$content(store.state.blog_category1).get(route.path)) || payload

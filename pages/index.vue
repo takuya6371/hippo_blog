@@ -42,7 +42,15 @@ export default{
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
+    //console.log(this.$route)
+    //console.log(this.$app)
   },
+  /*asyncData: async ({ app, route, payload,store }) => {
+    console.log(app)
+    console.log(route)
+    var aa = (await app.$content("").get("/"))
+    console.log(aa)
+  },*/
 }
 </script>
 <style>
@@ -114,27 +122,27 @@ export default{
     animation: anime_text 36s 0s infinite; 
 }
 .main_img_1 {
-    background-image: url('../components/title_tibet.jpg');
+    background-image: url('./title_tibet.jpg');
 
 }
 .main_img_2 {
-    background-image: url('../components/title_namibia.jpg');
+    background-image: url('./title_namibia.jpg');
 
 }
  .main_img_3 {
-    background-image: url('../components/title_philippines.jpg');
+    background-image: url('./title_philippines.jpg');
 
 }
 .main_img_4 {
-    background-image: url('../components/title_nepal.jpg');
+    background-image: url('./title_nepal.jpg');
 
 }
 .main_img_5 {
-    background-image: url('../components/title_kilimanjaro.jpg');
+    background-image: url('./title_kilimanjaro.jpg');
 
 }
 .main_img_6 {
-    background-image: url('../components/title_lebanon.jpg');
+    background-image: url('./title_lebanon.jpg');
 
 }
 
