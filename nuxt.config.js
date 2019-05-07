@@ -1,10 +1,8 @@
 module.exports = {
   modules: ["nuxtdown"],
-  router: {
-    base: '/'
-  },
   env: {
-    BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
+    BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
+    base:"./",
     //BASE_URL: ''
   },
   /*

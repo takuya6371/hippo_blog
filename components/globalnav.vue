@@ -20,6 +20,7 @@
 <script>
 import axios from 'axios'
 export default {
+  props:['genre'],
   data(){
     return{
         res: '',
@@ -29,6 +30,10 @@ export default {
         genres: [],
     }
   },
+  created: function() {
+console.log("ttttt"+this.genre)
+  },
+
   /*created: function() {
     axios.get(this.$store.state.blog_url).then((res1) => {
       var data = res1
@@ -71,10 +76,10 @@ export default {
     })
   },
 */
-
+/*
   asyncData: async ({ app, route }) => {
     console.log("aa"+app)
-    console.log(route)
+    console.log(this.genre)
     //var aa = (await app.$content("it").get("/"))
     //console.log(aa)
 
@@ -95,7 +100,7 @@ export default {
         this.genres.push(genres_tmp[i])
       }
     });
-  },
+  },*/
 /*
       var data = res1
       //console.log(data.data['content-endpoints'])

@@ -51,10 +51,13 @@ export default {
             //return this.$store.state.blog_contents
         },
         getList(category){
-            axios.get(this.$store.state.blog_url+category).then((response) => {
-                console.log("content:"+JSON.stringify(response.data))
-                this.contents = response.data
-            })
+            console.log(this.$store.state.blog_url+category)
+            if(category != ''){
+                axios.get(this.$store.state.blog_url+category).then((response) => {
+                    console.log("content:"+JSON.stringify(response.data))
+                    this.contents = response.data
+                })
+            }
             //return this.$store.state.blog_contents
         },
 

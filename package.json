@@ -15,9 +15,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/axios": "^5.3.1",
     "axios": "^0.18.0",
-    "core-js": "^2.6.5",
     "nuxt": "~2.2.0",
     "nuxtdown": "^2.0.3"
   },
@@ -29,15 +28,5 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
     "glob": "^7.1.2"
-  },
-  "main": ".eslintrc.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/takuya6371/hippo_blog.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/takuya6371/hippo_blog/issues"
-  },
-  "homepage": "https://github.com/takuya6371/hippo_blog#readme"
+  }
 }

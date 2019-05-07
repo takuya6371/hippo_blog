@@ -3,9 +3,9 @@ export const state = () => ({
     is_top_page: true,
     blog_id: null,
     blog_contents: [],
-    blog_category1: null,
-    blog_category2: null,
-    blog_category3: null,
+    blog_category1: '',
+    blog_category2: '',
+    blog_category3: '',
     blog_contents: [],
     blog_url: '/content-api/'
 
@@ -51,9 +51,9 @@ export const mutations = {
       console.log("category3:"+state.blog_category3)
       },
     categoryClear(state) {
-      state.blog_category1 = null
-      state.blog_category2 = null
-      state.blog_category3 = null
+      state.blog_category1 = ''
+      state.blog_category2 = ''
+      state.blog_category3 = ''
       console.log("category clear")
     },
   }

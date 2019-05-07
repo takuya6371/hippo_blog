@@ -21,7 +21,7 @@
       <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>
     </div>
     <div>
-      <globalnav/>
+      <globalnav :genre="genres"/>
     </div>
   </section>
 </template>
@@ -37,20 +37,39 @@ export default{
     return{
         res: '',
         contents: [],
-        genre: '',
+        genres: `${this.genre}`,
     }
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
-    //console.log(this.$route)
-    //console.log(this.$app)
+    console.log(this.$route)
+    console.log(this)
   },
-  /*asyncData: async ({ app, route, payload,store }) => {
+  asyncData: async ({ app, route }) => {
+    var genres = []
     console.log(app)
     console.log(route)
-    var aa = (await app.$content("").get("/"))
-    console.log(aa)
-  },*/
+    await app.$content("").get("/").then((res1) => {
+
+      var data = res1
+      console.log(data)
+      console.log(data.data)
+      var genres_tmp = data
+      genres_tmp.sort(function(a,b){
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+      return 0;
+      });
+      console.log(genres_tmp)
+      for(var i = 0; i < 5; i++){
+        genres.push(genres_tmp[i])
+      }
+      console.log(genres)
+      return{
+        genre: genres
+      };
+    });
+  },
 }
 </script>
 <style>

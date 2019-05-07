@@ -1,19 +1,14 @@
 module.exports = {
   api: function(isStatic) {
     const baseURL = "http://localhost:3000";
-    const browserBaseURL = !isStatic ? "/" : process.env.BASE_URL;
-    //const browserBaseURL = !isStatic ? "" : "~/";
-    console.log("ddd"+isStatic+"  "+browserBaseURL)
-    //const baseDir = process.env.BASE_DIR || ''
+    const browserBaseURL = !isStatic ? "" : process.env.BASE_URL;
     return {
       baseURL,
       browserBaseURL
       
     };
   },
-  //base: "~/",
   routes: [
-    //{base: ''},
 		{
 			path: "/",
 			name: "index"
@@ -24,14 +19,6 @@ module.exports = {
     }
   ],
   content: [
-    [
-      "",
-      {
-        page: "/page/_page",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
     [
       "it",
       {
@@ -56,5 +43,14 @@ module.exports = {
         isPost: false
       }
     ],
+    [
+      "",
+      {
+        page: "/page/_page",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+
   ]
 };
