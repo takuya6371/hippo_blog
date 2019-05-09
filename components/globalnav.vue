@@ -7,7 +7,7 @@
 -->
         <ul>
           <li v-for="post in genres" :key="post.title">
-            <nuxt-link @click.native="toPost(genre.genre,post.permalink)" class="" :to="'#'">
+            <nuxt-link @click.native="toPost(post.meta.section,post.permalink)" class="" :to="'#'">
               {{post.title}}
             </nuxt-link>
           </li>
@@ -31,7 +31,18 @@ export default {
     }
   },
   created: function() {
-console.log("ttttt"+this.genre)
+    console.log(this.genre)
+    var genres_tmp = this.genre
+    genres_tmp.sort(function(a,b){
+      if(a.date > b.date) return -1;
+      if(a.date < b.date) return 1;
+    return 0;
+    });
+    //console.log(genres_tmp)
+    for(var i = 0; i < 5; i++){
+      this.genres.push(genres_tmp[i])
+    }
+
   },
 
   /*created: function() {
@@ -135,7 +146,7 @@ console.log("ttttt"+this.genre)
     this.$store.commit('categoryClear')
   },
   toPost(category,link){
-    console.log("fgbghg")
+    console.log("fgbghg"+category)
     this.$store.commit('setBlogCategory1',category)
     this.$router.push(link);
   },

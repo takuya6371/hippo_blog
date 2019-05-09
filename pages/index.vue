@@ -21,7 +21,7 @@
       <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>
     </div>
     <div>
-      <globalnav :genre="genres"/>
+      <globalnav v-bind="{'genre': genre}"/>
     </div>
   </section>
 </template>
@@ -37,38 +37,46 @@ export default{
     return{
         res: '',
         contents: [],
-        genres: `${this.genre}`,
+        genre: 'default',
     }
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
     console.log(this.$route)
-    console.log(this)
+    console.log(this.contents)
   },
   asyncData: async ({ app, route }) => {
-    var genres = []
+
+    return{
+      genre: (await app.$content("").get("/"))
+    };
+    /*var genres = []
     console.log(app)
     console.log(route)
-    await app.$content("").get("/").then((res1) => {
+    app.$content("").get("/").then(function(res1) {
 
       var data = res1
-      console.log(data)
-      console.log(data.data)
+      //console.log(data)
+      //console.log(data.data)
       var genres_tmp = data
       genres_tmp.sort(function(a,b){
         if(a.date > b.date) return -1;
         if(a.date < b.date) return 1;
       return 0;
       });
-      console.log(genres_tmp)
+      //console.log(genres_tmp)
       for(var i = 0; i < 5; i++){
         genres.push(genres_tmp[i])
       }
+
       console.log(genres)
+      this.genres = genres
       return{
         genre: genres
-      };
-    });
+      };*/
+    /*}.bind(this)).catch(function(err) {
+      console.log(err);
+    }.bind(this));*/
   },
 }
 </script>

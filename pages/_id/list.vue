@@ -21,45 +21,61 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 export default {
     data(){
         return{
-            res: '',
+            //res: '',
             contents: [],
             //category: '',
+            app: '',
         }
     },
-
+    asyncData: async ({ app, route,store,context,params,nuxt }) => {
+    console.log(route)
+        return{
+        contents: ( await app.$content(route.query.id).get("/")),
+        //contents: this.getList(store.state.blog_category1),
+        app: app,
+        context: context
+        };
+    },
     computed: {
         category() {
             //ローカルでstoreのstateデータを代入
             this.$store.commit('setTopFlg',false)
-            this.getList(this.$store.state.blog_category1)
+            //this.getList(this.$store.state.blog_category1)
             return this.$store.state.blog_category1
         },
     },
     watch: {
         category(val) {
-            console.log("category changed")
+            console.log("category changed"+this.app)
+            //console.log(this.app)
             this.getList(this.$store.state.blog_category1)
             return this.$store.state.blog_category1
         },
     },
     methods: {
+        async getList(category){
+            console.log(category)
+            this.contents = await this.app.$content(category).get("/")
+            //return await app.$content(store.state.blog_category1).get("/")
+        },
         getContents(){
             //return this.$store.state.blog_contents
         },
-        getList(category){
+        /*async getList(category){
             console.log(this.$store.state.blog_url+category)
-            if(category != ''){
-                axios.get(this.$store.state.blog_url+category).then((response) => {
-                    console.log("content:"+JSON.stringify(response.data))
-                    this.contents = response.data
-                })
-            }
+            //if(category != ''){
+            //    axios.get(this.$store.state.blog_url+category).then((response) => {
+                //axios.get(process.env.BASE_URL+"/content/"+category).then((response) => {
+             //       console.log("content:"+JSON.stringify(response.data))
+             //       this.contents = response.data
+             //   })
+            //}
             //return this.$store.state.blog_contents
-        },
+        },*/
 
     },
 }

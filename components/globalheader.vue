@@ -54,7 +54,7 @@ export default {
     categoryClear(){
       this.$store.commit('categoryClear')
     },
-    setCategry(category){
+    async setCategry(category){
       this.$store.commit('setBlogCategory1',category)
     },
     handleScroll: function(evt, el) {
