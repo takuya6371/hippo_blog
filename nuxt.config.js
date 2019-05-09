@@ -1,3 +1,4 @@
+process.traceDeprecation = true;
 module.exports = {
   modules: ["nuxtdown"],
   env: {
