@@ -14,7 +14,7 @@ module.exports = {
 			name: "index"
 		},
 		{
-			path: "/:list",
+			path: "_id/list",
 			name: "list"
     }
   ],
