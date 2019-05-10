@@ -7,10 +7,16 @@
     </td>
     <td class="header_list">
     <ul>
-      <li><nuxt-link @click.native="categoryClear()" class="header_list" to="/">Home</nuxt-link></li>
+    <!--
+      <li><nuxt-link @click.native="categoryClear()" class="header_list" :to="/">Home</nuxt-link></li>
       <li><nuxt-link @click.native="setCategry('travel')" class="header_list" :to="{'path':'/travel/list', 'query':{'id':'travel'}}">Travel</nuxt-link></li>
       <li><nuxt-link @click.native="setCategry('outdoor')" class="header_list" :to="{'path':'/outdoor/list', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
       <li><nuxt-link @click.native="setCategry('it')" class="header_list" :to="{'path':'/it/list', 'query':{'id':'it'}}">IT</nuxt-link></li>
+      -->
+      <li><nuxt-link @click.native="categoryClear()" class="header_list" :to="'#'">Home</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('travel')" class="header_list" :to="'#'">Travel</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('outdoor')" class="header_list" :to="'#'">Outdoor</nuxt-link></li>
+      <li><nuxt-link @click.native="setCategry('it')" class="header_list" :to="'#'">IT</nuxt-link></li>
     </ul>
     </td>
     </tr>
@@ -54,9 +60,11 @@ export default {
   methods: {
     categoryClear(){
       this.$store.commit('categoryClear')
+      this.$router.push("/");
     },
     async setCategry(category){
       this.$store.commit('setBlogCategory1',category)
+      this.$router.push("/"+category+"/list");
     },
     handleScroll: function(evt, el) {
       //console.log(window.scrollY);
