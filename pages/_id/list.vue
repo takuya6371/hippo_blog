@@ -45,6 +45,7 @@ export default {
         category() {
             //ローカルでstoreのstateデータを代入
             this.$store.commit('setTopFlg',false)
+            console.log(this.contents)
             //this.getList(this.$store.state.blog_category1)
             return this.$store.state.blog_category1
         },
