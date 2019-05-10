@@ -31,21 +31,20 @@ export default {
             app: '',
         }
     },
-    asyncData: async ({ app, route,store,context,params,nuxt }) => {
+    asyncData: async ({ app, route,store,params,nuxt }) => {
     console.log(route)
     console.log(route.query.id)
         return{
         contents: ( await app.$content("").get("/")),
         //contents: this.getList(store.state.blog_category1),
         app: app,
-        context: context
         };
     },
     computed: {
         category() {
+            console.log(this.contents)
             //ローカルでstoreのstateデータを代入
             this.$store.commit('setTopFlg',false)
-            console.log(this.contents)
             //this.getList(this.$store.state.blog_category1)
             return this.$store.state.blog_category1
         },
@@ -67,18 +66,6 @@ export default {
         getContents(){
             //return this.$store.state.blog_contents
         },
-        /*async getList(category){
-            console.log(this.$store.state.blog_url+category)
-            //if(category != ''){
-            //    axios.get(this.$store.state.blog_url+category).then((response) => {
-                //axios.get(process.env.BASE_URL+"/content/"+category).then((response) => {
-             //       console.log("content:"+JSON.stringify(response.data))
-             //       this.contents = response.data
-             //   })
-            //}
-            //return this.$store.state.blog_contents
-        },*/
-
     },
 }
 </script>
