@@ -48,7 +48,7 @@ export default{
   asyncData: async ({ app, route }) => {
 
     return{
-      genre: (await app.$content("").get("/"))
+      //genre: (await app.$content("").get("/"))
     };
     /*var genres = []
     console.log(app)

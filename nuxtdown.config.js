@@ -8,6 +8,7 @@ module.exports = {
       
     };
   },
+  /*
   routes: [
 		{
 			path: "/",
@@ -17,7 +18,7 @@ module.exports = {
 			path: "_id/list",
 			name: "list"
     }
-  ],
+  ],*/
   content: [
     [
       "it",
