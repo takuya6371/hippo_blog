@@ -32,17 +32,18 @@ export default {
   },
   created: function() {
     console.log(this.genre)
-    var genres_tmp = this.genre
-    genres_tmp.sort(function(a,b){
-      if(a.date > b.date) return -1;
-      if(a.date < b.date) return 1;
-    return 0;
-    });
-    //console.log(genres_tmp)
-    for(var i = 0; i < 5; i++){
-      this.genres.push(genres_tmp[i])
+    if(this.genre.length > 0){
+      var genres_tmp = this.genre
+      genres_tmp.sort(function(a,b){
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+      return 0;
+      });
+      //console.log(genres_tmp)
+      for(var i = 0; i < 5; i++){
+        this.genres.push(genres_tmp[i])
+      }
     }
-
   },
 
   /*created: function() {

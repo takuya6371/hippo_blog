@@ -37,7 +37,7 @@ export default{
     return{
         res: '',
         contents: [],
-        genre: 'default',
+        genre: [],
     }
   },
   created: function() {
@@ -50,7 +50,8 @@ export default{
     return{
       //genre: (await app.$content("").get("/"))
     };
-    /*var genres = []
+    /*
+    var genres = []
     console.log(app)
     console.log(route)
     app.$content("").get("/").then(function(res1) {
@@ -73,10 +74,13 @@ export default{
       this.genres = genres
       return{
         genre: genres
-      };*/
-    /*}.bind(this)).catch(function(err) {
+      };
+      */
+    /*
+    }.bind(this)).catch(function(err) {
       console.log(err);
-    }.bind(this));*/
+    }.bind(this));
+    */
   },
 }
 </script>
