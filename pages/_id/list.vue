@@ -33,6 +33,7 @@ export default {
     },
     asyncData: async ({ app, route,store,context,params,nuxt }) => {
     console.log(route)
+    console.log(route.query.id)
         return{
         contents: ( await app.$content(route.query.id).get("/")),
         //contents: this.getList(store.state.blog_category1),
