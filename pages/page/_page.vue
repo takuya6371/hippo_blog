@@ -70,7 +70,7 @@ export default {
       };
     }else{
       content_path = route.path
-      var content = await app.$content("").get(route.path)
+      var content = await app.$content(store.state.blog_category1).get("")
       return {
         page: content || payload,
         cnotent_show: store.state.content_show_flg,
