@@ -52,6 +52,7 @@ export default {
   toPost(category,link){
     console.log("fgbghg"+category)
     this.$store.commit('setBlogCategory1',category)
+    this.$store.commit('setPageContentFlg',true)
     this.$router.push(link);
   },
 },

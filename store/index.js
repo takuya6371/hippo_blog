@@ -7,7 +7,8 @@ export const state = () => ({
     blog_category2: '',
     blog_category3: '',
     blog_contents: [],
-    blog_url: '/content-api/'
+    blog_url: '/content-api/',
+    content_show_flg: false,
 
   })
 
@@ -19,6 +20,11 @@ export const actions = {
   }
 }
 export const mutations = {
+  setPageContentFlg(state,flg) {
+    state.content_show_flg = flg
+    console.log("show_flg:"+state.is_top_page)
+    },
+
   setTopFlg(state,flg) {
     state.is_top_page = flg
     console.log("top:"+state.is_top_page)
