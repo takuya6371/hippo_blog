@@ -23,7 +23,7 @@ module.exports = {
     [
       "it",
       {
-        page: "/page/_page",
+        page: "/list/_list",
         permalink: "/:slug",
         isPost: false
       }
@@ -31,7 +31,7 @@ module.exports = {
     [
       "outdoor",
       {
-        page: "/page/_page",
+        page: "/list/_list",
         permalink: "/:slug",
         isPost: false
       }
@@ -39,7 +39,7 @@ module.exports = {
     [
       "travel",
       {
-        page: "/page/_page",
+        page: "/list/_list",
         permalink: "/:slug",
         isPost: false
       }
@@ -48,30 +48,6 @@ module.exports = {
       "",
       {
         page: "/page/_page",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
-    [
-      "it",
-      {
-        page: "/page/_list",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
-    [
-      "outdoor",
-      {
-        page: "/page/_list",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
-    [
-      "travel",
-      {
-        page: "/page/_list",
         permalink: "/:slug",
         isPost: false
       }

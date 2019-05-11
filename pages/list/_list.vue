@@ -23,13 +23,13 @@
 <script>
 //import axios from 'axios'
 export default {
-    props:['app'],
+    //props:['app'],
     data(){
         return{
             //res: '',
             contents: [],
             //category: '',
-            //app: '',
+            app: '',
         }
     },
     asyncData: async ({ app, route,store,params,nuxt }) => {
