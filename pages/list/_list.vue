@@ -21,7 +21,7 @@
 </template>
 
 <script>
-//import axios from 'axios'
+import axios from 'axios'
 export default {
     //props:['app'],
     data(){
@@ -44,6 +44,8 @@ export default {
     created: function() {
         //console.log(this.app)
         //this.contents = this.app.$content("").get("/")
+        axios.get('/content-api/')
+        .then(response => (console.log(response)))
     },
 
     computed: {

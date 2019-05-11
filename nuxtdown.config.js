@@ -20,7 +20,7 @@ module.exports = {
     }
   ],*/
   content: [
-    [
+ /*   [
       "it",
       {
         page: "/list/_list",
@@ -43,7 +43,7 @@ module.exports = {
         permalink: "/:slug",
         isPost: false
       }
-    ],
+    ],*/
     [
       "",
       {
