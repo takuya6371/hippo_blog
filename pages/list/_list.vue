@@ -42,9 +42,9 @@ export default {
         };
     },
     created: function() {
-        //console.log(this.app)
+        console.log("ddd")
         //this.contents = this.app.$content("").get("/")
-        axios.get('/content-api/')
+        axios.get('../../content/')
         .then(response => (console.log(response)))
     },
 

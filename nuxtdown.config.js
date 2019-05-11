@@ -20,30 +20,30 @@ module.exports = {
     }
   ],*/
   content: [
- /*   [
+    [
       "it",
       {
-        page: "/list/_list",
-        permalink: "/:slug",
+        page: "/page/_page",
+        permalink: "/:section",
         isPost: false
       }
     ],
     [
       "outdoor",
       {
-        page: "/list/_list",
-        permalink: "/:slug",
+        page: "/page/_page",
+        permalink: "/:section",
         isPost: false
       }
     ],
     [
       "travel",
       {
-        page: "/list/_list",
-        permalink: "/:slug",
+        page: "/page/_page",
+        permalink: "/:section",
         isPost: false
       }
-    ],*/
+    ],
     [
       "",
       {

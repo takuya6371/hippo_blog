@@ -11,7 +11,8 @@
           <p class="content_title">記事リスト</p>
           <div class="card-deck">    
               <div style="width: 215px; border: 1px solid rgba(0,0,0,.125);margin: 8px;" class="" v-for="post in page" :key="post.title">
-              <nuxt-link class="header_list" v-bind:to="post.permalink">
+              <!--<nuxt-link class="header_list" v-bind:to="post.permalink">-->
+              <nuxt-link class="header_list" @click.native="showContent(post.permalink)" :to="'#'">
                   <div class="card-body">
                       <img style="height: 100px;" class="card-img-top" :src="`${post.thumbnail}`">
                       <h5 class="card-title" style="font-size: 30px;">{{post.title}}</h5>
@@ -33,8 +34,8 @@ export default {
   data(){
     return{
         cnotent_show: false,
-        //page_body: '',
-        //page_title: '',
+        page_body: '',
+        page_title: '',
         app: '',
     }
 },
@@ -69,7 +70,7 @@ export default {
       };
     }else{
       content_path = route.path
-      var content = await app.$content("").get("/")
+      var content = await app.$content("").get(route.path)
       return {
         page: content || payload,
         cnotent_show: store.state.content_show_flg,
@@ -83,9 +84,22 @@ export default {
     this.$store.commit('setTopFlg',false)
   },
   methods: {
-    async setContent(permapath){
-      this.page_body = app.$content("").get(permapath)
-      this.page_body = ''
+   async setContent(permapath){
+      console.log("aaa")
+      var content = await this.app.$content("").get(permapath)
+      console.log(content)
+      this.page_body = content.body
+      this.page_title = content.title
+      return{
+        page_body: content.body,
+        page_title: content.title
+      };
+    },
+    async showContent(content_path){
+      console.log(content_path)
+      console.log(this.app)
+      this.setContent(content_path)
+      this.cnotent_show = true
     },
   },
 };
