@@ -33,24 +33,31 @@ export default {
         }
     },
     asyncData: async ({ app, route,store,params,nuxt }) => {
-    console.log(route)
-    console.log(route.query.id)
+    //console.log(app.$content(store.state.blog_category1).getAll())
+    var contents = store.state.blog_contents
+    const result = contents.filter(item => item = store.state.blog_category1)
+    var matched = contents.filter(function(contents) {
+        return contents.tag1.match(store.state.blog_category1);
+    });
+    console.log(matched)
+    //this.contents = store.state.blog_contents
+    //console.log(route.query.id)
         return{
-        contents: ( await app.$content(store.state.blog_category1).get("/")),
-        //contents: this.getList(store.state.blog_category1),
-        app: app,
+        //contents: ( await app.$content(store.state.blog_category1).getAll("")),
+        contents: matched,
+        //app: app,
         };
     },
     created: function() {
-        console.log("ddd")
+        //console.log("ddd")
         //this.contents = this.app.$content("").get("/")
-        axios.get('../../content/')
-        .then(response => (console.log(response)))
+        //axios.get('../../content/')
+        //.then(response => (console.log(response)))
     },
 
     computed: {
         category() {
-            console.log(this.contents)
+            //console.log(this.contents)
             //ローカルでstoreのstateデータを代入
             this.$store.commit('setTopFlg',false)
             //this.getList(this.$store.state.blog_category1)
@@ -59,10 +66,18 @@ export default {
     },
     watch: {
         category(val) {
-            console.log("category changed"+this.app)
+            //console.log("category changed"+this.app)
             //console.log(this.app)
-            this.getList(this.$store.state.blog_category1)
-            return this.$store.state.blog_category1
+            //this.$router.push("list");
+            //this.$forceUpdate();
+            //this.getList(this.$store.state.blog_category1)
+            //return this.$store.state.blog_category1
+            var contents = this.$store.state.blog_contents
+            var genre = this.$store.state.blog_category1
+            var matched = contents.filter(function(contents) {
+                return contents.tag1.match(genre);
+            });
+            this.contents = matched
         },
     },
     methods: {

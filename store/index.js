@@ -6,7 +6,6 @@ export const state = () => ({
     blog_category1: '',
     blog_category2: '',
     blog_category3: '',
-    blog_contents: [],
     blog_url: '/content-api/',
     content_show_flg: false,
 
@@ -30,11 +29,28 @@ export const mutations = {
     console.log("top:"+state.is_top_page)
     },
   setBlogContents(state,contents) {
-      axios.get(blog_url+path).then((response) => {
+      /*axios.get(blog_url+path).then((response) => {
         state.blog_contents = JSON.stringify(response.data)
         state.blog_contents = JSON.parse(state.blog_contents)
         console.log("set content"+state.blog_contents)
-      })
+      })*/
+      var temp_list = []
+      if(contents.length > 0){
+        var genres_tmp = contents
+        genres_tmp.sort(function(a,b){
+          if(a.date > b.date) return -1;
+          if(a.date < b.date) return 1;
+        return 0;
+        });
+        //console.log(genres_tmp)
+        for(var i = 0; i < genres_tmp.length; i++){
+          console.log("aa")
+          temp_list.push(genres_tmp[i])
+        }
+      }
+      state.blog_contents = temp_list
+      //state.blog_contents = contents
+      //state.blog_contents = JSON.parse(contents)
     },
     setBlogId(state,id) {
       state.blog_id = id

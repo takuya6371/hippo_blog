@@ -60,13 +60,14 @@ export default {
   methods: {
     categoryClear(){
       this.$store.commit('categoryClear')
+      this.$forceUpdate();
       this.$router.push("/");
     },
     async setCategry(category){
       this.$store.commit('setBlogCategory1',category)
       this.$store.commit('setPageContentFlg',category)
       this.$store.commit('setPageContentFlg',false)
-      this.$router.push(category);
+      this.$router.push("list");
     },
     handleScroll: function(evt, el) {
       //console.log(window.scrollY);

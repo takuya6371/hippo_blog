@@ -44,16 +44,20 @@ export default{
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
-    console.log(this.app)
-    console.log(this.contents)
+    //console.log(this.app)
+    //console.log(this.contents)
     //this.genre = this.app.$content("").get("/")
   },
-  asyncData: async ({ app, route }) => {
-
-    return{
-      genre: (await app.$content("").get("/")),
-      //app: app
-    };
+  asyncData: async ({ app, route,store }) => {
+    console.log(store.state.blog_contents.length)
+    if(store.state.blog_contents.length == 0){
+      var contents = await app.$content("").get("/")
+      store.commit('setBlogContents',contents)
+      return{
+        //genre: (await app.$content("").get("/")),
+        //app: app
+      };
+    }
     /*
     var genres = []
     console.log(app)

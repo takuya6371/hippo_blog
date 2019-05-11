@@ -20,7 +20,7 @@
 <script>
 import axios from 'axios'
 export default {
-  props:['genre'],
+  //props:['genre'],
   data(){
     return{
         res: '',
@@ -28,12 +28,18 @@ export default {
         outdoor: [],
         it: [],
         genres: [],
+        genre: [],
     }
   },
   created: function() {
-    console.log(this.genre)
-    if(this.genre.length > 0){
-      var genres_tmp = this.genre
+    var temp_list = this.$store.state.blog_contents
+    for(var i = 0; i < 5; i++){
+      this.genres.push(temp_list[i])
+    }
+    //this.genre = JSON.parse(this.genre)
+    //console.log(aa)
+    /*if(aa.length > 0){
+      var genres_tmp = aa
       genres_tmp.sort(function(a,b){
         if(a.date > b.date) return -1;
         if(a.date < b.date) return 1;
@@ -41,9 +47,10 @@ export default {
       });
       //console.log(genres_tmp)
       for(var i = 0; i < 5; i++){
+        console.log("aa")
         this.genres.push(genres_tmp[i])
       }
-    }
+    }*/
   },
   methods: {
   categoryClear(){

@@ -1,31 +1,10 @@
 <template>
   <div>
     <div style="height:117px;"></div>
-      <div class="content_div" v-if="cnotent_show">
-        <p class="content_title">{{page_title}}</p><br>
-          <nuxtdown-body class="body" :body="page_body"/>
+      <div class="content_div">
+        <p class="content_title">{{page.title}}</p><br>
+          <nuxtdown-body class="body" :body="page.body"/>
       </div>
-
-
-      <div class="starter-template" v-else>
-          <p class="content_title">記事リスト</p>
-          <div class="card-deck">    
-              <div style="width: 215px; border: 1px solid rgba(0,0,0,.125);margin: 8px;" class="" v-for="post in page" :key="post.title">
-              <!--<nuxt-link class="header_list" v-bind:to="post.permalink">-->
-              <nuxt-link class="header_list" @click.native="showContent(post.permalink)" :to="'#'">
-                  <div class="card-body">
-                      <img style="height: 100px;" class="card-img-top" :src="`${post.thumbnail}`">
-                      <h5 class="card-title" style="font-size: 30px;">{{post.title}}</h5>
-                      <div class="title_body">
-                          <nuxtdown-body max="３" class="body" :body="post.body"/>
-                      </div>
-                  </div>
-              </nuxt-link>
-              </div>
-          </div>
-      </div>
-
-    </div>
   </div>
 </template>
 
@@ -41,12 +20,12 @@ export default {
 },
   head: function() {
     return {
-      //title: `${this.page.title}`,
+      title: `${this.page.title}`,
       meta: [
         {
           hid: "description",
           name: "description",
-        //  content: this.page.description
+          content: this.page.description
         }
       ]
     };
@@ -58,6 +37,10 @@ export default {
     console.log(route)
     console.log(app.$content("").get(route.path))
     var content_path;
+     return {
+        page:await app.$content("").get(route.path)
+     };
+    /*
     if (store.state.content_show_flg ){
       var content = await app.$content("").get(route.path)
       console.log(content)
@@ -78,13 +61,13 @@ export default {
         cnotent_show: false,
         //page: (await app.$content("").get("/")) || payload
       };
-    }
+    }*/
   },
   created: function(){
     this.$store.commit('setTopFlg',false)
   },
   methods: {
-   async setContent(permapath){
+  /* async setContent(permapath){
       console.log("aaa")
       var content = await this.app.$content("").get(permapath)
       console.log(content)
@@ -100,7 +83,7 @@ export default {
       console.log(this.app)
       this.setContent(content_path)
       this.cnotent_show = true
-    },
+    },*/
   },
 };
 </script>
