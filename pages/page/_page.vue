@@ -28,8 +28,10 @@ export default {
     console.log(app)
     console.log(route)
     //console.log("fuck "+app.$content("/pages").get(route.path))
+    console.log(app.$content("").get(route.path))
     return {
-      page: (await app.$content(store.state.blog_category1).get(route.path)) || payload
+      page: (await app.$content("").get(route.path)) || payload
+      //page: (await app.$content("").get("/")) || payload
     };
   },
   created: function(){

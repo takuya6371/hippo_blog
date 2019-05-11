@@ -32,7 +32,7 @@ export default {
             //app: '',
         }
     },
-  /*  asyncData: async ({ app, route,store,params,nuxt }) => {
+    asyncData: async ({ app, route,store,params,nuxt }) => {
     console.log(route)
     console.log(route.query.id)
         return{
@@ -40,10 +40,10 @@ export default {
         //contents: this.getList(store.state.blog_category1),
         app: app,
         };
-    },*/
+    },
     created: function() {
-        console.log(this.app)
-        this.contents = this.app.$content("").get("/")
+        //console.log(this.app)
+        //this.contents = this.app.$content("").get("/")
     },
 
     computed: {

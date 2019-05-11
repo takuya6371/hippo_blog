@@ -30,6 +30,7 @@
 import globalnav from '~/components/globalnav.vue'
 import axios from 'axios'
 export default{
+  //props:['app'],
   components:{
     globalnav
   },
@@ -38,17 +39,20 @@ export default{
         res: '',
         contents: [],
         genre: [],
+        //app: '',
     }
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
-    console.log(this.$route)
+    console.log(this.app)
     console.log(this.contents)
+    //this.genre = this.app.$content("").get("/")
   },
   asyncData: async ({ app, route }) => {
 
     return{
-      genre: (await app.$content("").get("/"))
+      genre: (await app.$content("").get("/")),
+      //app: app
     };
     /*
     var genres = []

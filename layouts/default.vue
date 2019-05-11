@@ -10,10 +10,13 @@
 <script>
 import globalheader from '~/components/globalheader.vue'
 import globalfooter from '~/components/globalfooter.vue'
-import axios from 'axios'
 export default {
   components:{
     globalheader,globalfooter
+  },
+  data(){
+    return{
+    }
   },
 }
 </script>

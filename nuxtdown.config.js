@@ -52,6 +52,29 @@ module.exports = {
         isPost: false
       }
     ],
-
+    [
+      "it",
+      {
+        page: "/page/_list",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+    [
+      "outdoor",
+      {
+        page: "/page/_list",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+    [
+      "travel",
+      {
+        page: "/page/_list",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
   ]
 };
