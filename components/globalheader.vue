@@ -67,7 +67,8 @@ export default {
       this.$store.commit('setBlogCategory1',category)
       this.$store.commit('setPageContentFlg',category)
       this.$store.commit('setPageContentFlg',false)
-      this.$router.push("list");
+      this.$router.push({'path':'/list', 'query':{category}});
+      //this.$router.push("list");
     },
     handleScroll: function(evt, el) {
       //console.log(window.scrollY);
@@ -89,12 +90,15 @@ export default {
 <style scoped>
 a.header_list{
   color:#ffffff !important;
+  text-decoration: none;
+  font-family: Verdana;
 }
 .title{
   font-size:20px;
   color:white;
   text-align:center;
   width:100%;
+  font-family: Verdana;
 }
 .header_table_{
   width:100%;

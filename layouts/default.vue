@@ -4,6 +4,7 @@
     <div>
       <nuxt/>
     </div>
+    <div style="height:200px;"></div>
     <globalfooter/>
   </div>
 </template>
@@ -80,12 +81,12 @@ html {
   margin-top:110px;
 }
 .latest_nav{
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  ＃border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .content_div{
   width:70%;
   margin-left: 15px;
-  height:300px;
+  #height:300px;
   float: left;
 }
 </style>

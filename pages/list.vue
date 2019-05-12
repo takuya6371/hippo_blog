@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div style="height:117px;"></div>
+        <div style="height:110px;"></div>
         <div class="starter-template">
             <p class="content_title">記事リスト</p>
             <div class="card-deck">    
@@ -17,12 +17,19 @@
                 </div>
             </div>
         </div>
+        <div class="nav_space">
+            <globalnav/>
+        </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
+import globalnav from '~/components/globalnav.vue'
 export default {
+    components:{
+        globalnav
+    },
     //props:['app'],
     data(){
         return{
@@ -32,21 +39,36 @@ export default {
             app: '',
         }
     },
-    asyncData: async ({ app, route,store,params,nuxt }) => {
-    //console.log(app.$content(store.state.blog_category1).getAll())
-    var contents = store.state.blog_contents
-    const result = contents.filter(item => item = store.state.blog_category1)
-    var matched = contents.filter(function(contents) {
-        return contents.tag1.match(store.state.blog_category1);
-    });
-    console.log(matched)
-    //this.contents = store.state.blog_contents
-    //console.log(route.query.id)
-        return{
-        //contents: ( await app.$content(store.state.blog_category1).getAll("")),
-        contents: matched,
-        //app: app,
-        };
+    asyncData: async ({ app, route,store,router,nuxt }) => {
+        store.commit('setTopFlg',false)
+        //console.log(app.$content(store.state.blog_category1).getAll())
+        var contents = store.state.blog_contents
+        if(contents.length == 0){
+            //contents = await app.$content("").get("/")
+            //store.commit('setBlogContents',contents)
+            //route.push('/')
+            //window.location.reload();
+            //document.location = "/"
+            //router.go()
+        }else{
+            var category = store.state.blog_category1
+            if(category == ''){
+                console.log("category get")
+                var category = route.query.id
+            }
+            const result = contents.filter(item => item = store.state.blog_category1)
+            var matched = contents.filter(function(contents) {
+                return contents.tag1.match(store.state.blog_category1);
+            });
+            console.log(matched)
+            //this.contents = store.state.blog_contents
+            //console.log(route.query.id)
+            return{
+                //contents: ( await app.$content(store.state.blog_category1).getAll("")),
+                contents: matched,
+                //app: app,
+            };
+        }
     },
     created: function() {
         //console.log("ddd")
@@ -111,6 +133,8 @@ export default {
 .starter-template {
     padding: 0.5rem;
     text-align: center;
+    float:left;
+    width: 70%;
 }
 .img {
     height : 80px;

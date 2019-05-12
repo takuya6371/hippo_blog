@@ -20,7 +20,7 @@
       <p class="top_title">このブログについて</p>
       <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>
     </div>
-    <div>
+    <div class="nav_space">
       <globalnav v-bind="{'genre': genre}"/>
     </div>
   </section>
@@ -28,7 +28,7 @@
 
 <script>
 import globalnav from '~/components/globalnav.vue'
-import axios from 'axios'
+//import axios from 'axios'
 export default{
   //props:['app'],
   components:{
@@ -48,16 +48,15 @@ export default{
     //console.log(this.contents)
     //this.genre = this.app.$content("").get("/")
   },
-  asyncData: async ({ app, route,store }) => {
+  fetch: async ({ app, route,store }) => {
     console.log(store.state.blog_contents.length)
     if(store.state.blog_contents.length == 0){
       var contents = await app.$content("").get("/")
+      //store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)
-      return{
-        //genre: (await app.$content("").get("/")),
-        //app: app
-      };
     }
+
+
     /*
     var genres = []
     console.log(app)
@@ -89,16 +88,24 @@ export default{
       console.log(err);
     }.bind(this));
     */
+
+
   },
 }
 </script>
 <style>
+.nav_space{
+  float: right;
+  width: 250px;
+  #background-color: #f3f3f3;
+  height: 630px;
+},
 .top_title{
   text-align:center;
   font-size:23px;
 }
 .container{
-  width: 75% !important;
+  width: 100% !important;
   margin-left: 10px;
 }
 .title_text_dev{

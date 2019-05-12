@@ -1,21 +1,28 @@
 <template>
   <div>
-    <div style="height:117px;"></div>
+    <div style="height:110px;"></div>
       <div class="content_div">
         <p class="content_title">{{page.title}}</p><br>
           <nuxtdown-body class="body" :body="page.body"/>
+      </div>
+      <div class="nav_space">
+        <globalnav/>
       </div>
   </div>
 </template>
 
 <script>
+import globalnav from '~/components/globalnav.vue'
 export default {
+  components:{
+      globalnav
+  },
   data(){
     return{
         cnotent_show: false,
         page_body: '',
         page_title: '',
-        app: '',
+        //app: '',
     }
 },
   head: function() {
@@ -40,6 +47,8 @@ export default {
      return {
         page:await app.$content("").get(route.path)
      };
+
+
     /*
     if (store.state.content_show_flg ){
       var content = await app.$content("").get(route.path)
@@ -62,11 +71,14 @@ export default {
         //page: (await app.$content("").get("/")) || payload
       };
     }*/
+
+
   },
   created: function(){
     this.$store.commit('setTopFlg',false)
   },
   methods: {
+
   /* async setContent(permapath){
       console.log("aaa")
       var content = await this.app.$content("").get(permapath)
@@ -84,10 +96,16 @@ export default {
       this.setContent(content_path)
       this.cnotent_show = true
     },*/
+
+    
   },
 };
 </script>
 <style>
+img{
+    width: 50%;
+    height: 250px;
+}
 .header_list{
     color:black;
     text-decoration: none;

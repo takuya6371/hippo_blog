@@ -16,6 +16,11 @@ export const actions = {
     axios.get(blog_url+path).then((response) => {
             commit('setBlogContents', { contents: response.data })
     })
+  },
+  fetxhContents ({ commit,contents }) {
+    //if (req.session.user) {
+      commit('setBlogContents',content)
+    //}
   }
 }
 export const mutations = {
