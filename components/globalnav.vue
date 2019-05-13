@@ -1,5 +1,6 @@
 <template>
   <div class="main_nav">
+    <div v-bind:class="{ 'nav_top': isTop, 'nav_not_top': isNotTop }"></div>
     <div class="latest_nav">
       <p>最新記事</p><br>
  <!--     <div v-for="genre in genres">
@@ -29,6 +30,9 @@ export default {
         it: [],
         genres: [],
         //genre: [],
+        isTop: false,
+        isNotTop: true,
+
     }
   },
   created: async function() {
@@ -39,11 +43,22 @@ export default {
     }else{
       this.setContents(temp_list)
     }
+    if(this.$store.state.is_top_page){
+      this.isNotTop = false
+      this.isTop = true
+    }else{
+      this.isNotTop = true
+      this.isTop = false
+    }
   },
   computed: {
     contents() {
       console.log("nav_contents")
       return this.$store.state.blog_contents
+    },
+    top_flg() {
+      console.log("topflg")
+      return this.$store.state.is_top_page
     },
   },
   watch: {
@@ -52,7 +67,20 @@ export default {
       var contents = this.$store.state.blog_contents
       this.setContents(contents)
     },
+    top_flg(val) {
+      console.log("topflg change")
+        if(this.$store.state.is_top_page){
+          this.isNotTop = false
+          this.isTop = true
+        }else{
+          this.isNotTop = true
+          this.isTop = false
+        }
+        return this.$store.state.is_top_page
+    },
+
   },
+
   methods: {
   categoryClear(){
     this.$store.commit('categoryClear')
@@ -73,6 +101,12 @@ export default {
 }
 </script>
 <style>
+.nav_top{
+  height: 0px;
+}
+.nav_not_top{
+  height: 108px;
+}
 .main_nav{
   height: 100%;
   float: right;

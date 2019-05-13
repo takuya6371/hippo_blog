@@ -1,32 +1,54 @@
 <template>
   <div>
-    <globalheader/>
-    <div v-show="top_pic_flg">
-        <div class="main_imgBox">
-          <div class="main_img main_img_1" style=""></div>
-          <div class="main_img main_img_2" style=""></div>
-          <div class="main_img main_img_3" style=""></div>
-          <div class="main_img main_img_4" style=""></div>
-          <div class="main_img main_img_5" style=""></div>
-          <div class="main_img main_img_6" style=""></div>
+    <table style="border-spacing: unset;width: 100%;margin-top: -1px;">
+    <tbody>
+    <tr>
+      <td colspan="2" style="margin-top: -1px;position: fixed;z-index: 1000;">
+        <globalheader/>
+      </td>
+    </tr>
+    <tr v-show="top_pic_flg" style="">
+      <td colspan="2">
+        <div>
+          <div class="main_imgBox">
+            <div class="main_img main_img_1" style=""></div>
+            <div class="main_img main_img_2" style=""></div>
+            <div class="main_img main_img_3" style=""></div>
+            <div class="main_img main_img_4" style=""></div>
+            <div class="main_img main_img_5" style=""></div>
+            <div class="main_img main_img_6" style=""></div>
+          </div>
+          <div class="title_text_dev">
+            <p class="main_text title_text">East Tibet<br>Yaqing</p>
+            <p class="main_text title_text">Namibia<br>Rupara combined school</p>
+            <p class="main_text title_text">Phillipine<br>Bacolod</p>
+            <p class="main_text title_text">Nepal<br>Machhapuchhre</p>
+            <p class="main_text title_text">Tanzania<br>Kilimanjaro</p>
+            <p class="main_text title_text">Lebanon<br>Baalbek</p>
+          </div>
         </div>
-        <div class="title_text_dev">
-          <p class="main_text title_text">East Tibet<br>Yaqing</p>
-          <p class="main_text title_text">Namibia<br>Rupara combined school</p>
-          <p class="main_text title_text">Phillipine<br>Bacolod</p>
-          <p class="main_text title_text">Nepal<br>Machhapuchhre</p>
-          <p class="main_text title_text">Tanzania<br>Kilimanjaro</p>
-          <p class="main_text title_text">Lebanon<br>Baalbek</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;width:70%;">
+        <div class="main_contents">
+          <nuxt/>
         </div>
-      </div>
-    <div>
-      <nuxt/>
-    </div>
-    <div class="nav_space">
-      <globalnav/>
-    </div>
-    <div style="height:200px;"></div>
-    <globalfooter/>
+      </td>
+      <td style="width:30%;">
+        <div class="nav_space">
+          <globalnav/>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="height:200px;"></div>
+        <globalfooter/>
+      </td>
+    </tr>
+  </tbody>
+  </table>
   </div>
 </template>
 <script>
@@ -88,7 +110,11 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
+.main_contents{
+  text-align: center;
+  #float:left;
+  #width: 70%;
+}
 .button--green {
   display: inline-block;
   border-radius: 4px;
@@ -137,8 +163,34 @@ html {
   #height:300px;
   float: left;
 }
+.nav_space{
+  float: right;
+  width: 250px;
+  #background-color: #f3f3f3;
+  height: 630px;
+},
+.title_text_dev{
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+}
+.top_title{
+  text-align:center;
+  font-size:23px;
+}
+.container{
+  width: 100% !important;
+  margin-left: 10px;
+}
 
-
+.title_text {
+    color: white;
+    font-size: 45px;
+    font-weight: 600;
+}
 
 
 
@@ -182,9 +234,10 @@ html {
     background-size: cover;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 40%;
     -webkit-animation: anime_text 36s 0s infinite;
     animation: anime_text 36s 0s infinite; 
+    text-align: center;
 }
 .main_img_1 {
     background-image: url('./title_tibet.jpg');
@@ -263,7 +316,7 @@ html {
 .header_table{
   width:100%;
   height: 80px;
-  position: fixed;
+  #position: fixed;
   background-color: rgba(0,0,0,0.6);
   z-index: 1000;
 }

@@ -99,33 +99,6 @@ export default{
 }
 </script>
 <style>
-.nav_space{
-  float: right;
-  width: 250px;
-  #background-color: #f3f3f3;
-  height: 630px;
-},
-.top_title{
-  text-align:center;
-  font-size:23px;
-}
-.container{
-  width: 100% !important;
-  margin-left: 10px;
-}
-.title_text_dev{
-  top: 50%;
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  text-align: center;
-  overflow: hidden;
-}
 
-.title_text {
-    color: white;
-    font-size: 45px;
-    font-weight: 600;
-}
 
 </style>
