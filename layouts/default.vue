@@ -1,7 +1,7 @@
 <template>
   <div>
     <globalheader/>
-    <div v-if="top_pic_flg">
+    <div v-show="top_pic_flg">
         <div class="main_imgBox">
           <div class="main_img main_img_1" style=""></div>
           <div class="main_img main_img_2" style=""></div>

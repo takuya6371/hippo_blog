@@ -47,6 +47,7 @@ export default {
 
         //console.log(app.$content(store.state.blog_category1).getAll())
         var contents = store.state.blog_contents
+        console.log(contents.length)
         if(contents.length == 0){
             contents = await app.$content("").get("/")
             store.commit('setBlogContents',contents)
@@ -54,6 +55,7 @@ export default {
             //window.location.reload();
             //document.location = "/"
             //router.go()
+            console.log(contents)
         }
         var category = store.state.blog_category1
         if(category == ''){
