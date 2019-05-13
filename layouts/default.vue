@@ -234,7 +234,7 @@ html {
     background-size: cover;
     position: absolute;
     left: 0;
-    top: 40%;
+    top: 30%;
     -webkit-animation: anime_text 36s 0s infinite;
     animation: anime_text 36s 0s infinite; 
     text-align: center;

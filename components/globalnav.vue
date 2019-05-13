@@ -7,7 +7,7 @@
         <p class="genre_title">{{genre.genre}}</p>
 -->
         <ul　class="cp_list">
-          <li v-for="post in genres" :key="post.title">
+          <li v-for="post in genres" :key="post.title" class="nav_li">
             <nuxt-link @click.native="toPost(post.meta.section,post.permalink)" class="latest_link" :to="'#'">
               {{post.title}}
             </nuxt-link>
@@ -106,6 +106,9 @@ export default {
 }
 .nav_not_top{
   height: 108px;
+}
+.nav_li{
+  z-index:1500;
 }
 .main_nav{
   height: 100%;
