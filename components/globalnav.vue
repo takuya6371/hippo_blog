@@ -34,28 +34,24 @@ export default {
   created: async function() {
     var temp_list = this.$store.state.blog_contents
     if(temp_list.length == 0){
-        contents = await app.$content("").get("/")
-        store.commit('setBlogContents',contents)
+        //contents = await app.$content("").get("/")
+        //store.commit('setBlogContents',contents)
+    }else{
+      this.setContents(temp_list)
     }
-
-    for(var i = 0; i < 5; i++){
-      this.genres.push(temp_list[i])
-    }
-    //this.genre = JSON.parse(this.genre)
-    //console.log(aa)
-    /*if(aa.length > 0){
-      var genres_tmp = aa
-      genres_tmp.sort(function(a,b){
-        if(a.date > b.date) return -1;
-        if(a.date < b.date) return 1;
-      return 0;
-      });
-      //console.log(genres_tmp)
-      for(var i = 0; i < 5; i++){
-        console.log("aa")
-        this.genres.push(genres_tmp[i])
-      }
-    }*/
+  },
+  computed: {
+    contents() {
+      console.log("nav_contents")
+      return this.$store.state.blog_contents
+    },
+  },
+  watch: {
+    contents(val) {
+      console.log("nav_contents_changed")
+      var contents = this.$store.state.blog_contents
+      this.setContents(contents)
+    },
   },
   methods: {
   categoryClear(){
@@ -66,6 +62,11 @@ export default {
     this.$store.commit('setBlogCategory1',category)
     this.$store.commit('setPageContentFlg',true)
     this.$router.push(link);
+  },
+  setContents(contents){
+    for(var i = 0; i < 5; i++){
+      this.genres.push(contents[i])
+    }
   },
 },
 

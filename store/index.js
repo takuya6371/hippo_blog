@@ -1,6 +1,7 @@
 import axios from 'axios'
 export const state = () => ({
     is_top_page: true,
+    is_top_pic_flg: false,
     blog_id: null,
     blog_contents: [],
     blog_category1: '',
@@ -17,7 +18,7 @@ export const actions = {
             commit('setBlogContents', { contents: response.data })
     })
   },
-  fetxhContents ({ commit,contents }) {
+  fetchContents ({ commit,contents }) {
     //if (req.session.user) {
       commit('setBlogContents',content)
     //}
@@ -33,7 +34,11 @@ export const mutations = {
     state.is_top_page = flg
     console.log("top:"+state.is_top_page)
     },
-  setBlogContents(state,contents) {
+    setTopPicFlg(state,flg) {
+      state.is_top_pic_flg = flg
+      console.log("top_pic:"+state.is_top_pic_flg)
+      },
+    setBlogContents(state,contents) {
       /*axios.get(blog_url+path).then((response) => {
         state.blog_contents = JSON.stringify(response.data)
         state.blog_contents = JSON.parse(state.blog_contents)

@@ -39,13 +39,23 @@ export default {
       query_it: 'it',
     }
   },
+
+  created: function() {
+    console.log("header")
+    this.$store.commit('setTopFlg',false)
+    this.isTop = false
+    this.isNotTop = true
+  },
+
   computed: {
       top_flg() {
+        console.log("topflg")
         return this.$store.state.is_top_page
       },
   },
   watch: {
       top_flg(val) {
+        console.log("topflg change")
           if(this.$store.state.is_top_page){
             this.isNotTop = false
             this.isTop = true

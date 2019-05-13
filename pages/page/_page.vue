@@ -5,9 +5,11 @@
         <p class="content_title">{{page.title}}</p><br>
           <nuxtdown-body class="body" :body="page.body"/>
       </div>
+      <!--
       <div class="nav_space">
         <globalnav/>
       </div>
+      -->
   </div>
 </template>
 
@@ -76,6 +78,7 @@ export default {
   },
   created: function(){
     this.$store.commit('setTopFlg',false)
+    this.$store.commit('setTopPicFlg',false)
   },
   methods: {
 

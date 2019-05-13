@@ -4,7 +4,7 @@
         <div class="starter-template">
             <p class="content_title">記事リスト</p>
             <div class="card-deck">    
-                <div style="width: 215px; border: 1px solid rgba(0,0,0,.125);margin: 8px;" class="" v-for="post in contents" :key="post.title">
+                <div style="width: 180px; border: 1px solid rgba(0,0,0,.125);margin: 8px;" class="" v-for="post in contents" :key="post.title">
                 <nuxt-link class="header_list" v-bind:to="post.permalink">
                     <div class="card-body">
                         <img style="height: 100px;" class="card-img-top" :src="`${post.thumbnail}`">
@@ -17,9 +17,11 @@
                 </div>
             </div>
         </div>
+<!--
         <div class="nav_space">
             <globalnav/>
         </div>
+-->
     </div>
 </template>
 
@@ -41,34 +43,35 @@ export default {
     },
     asyncData: async ({ app, route,store,router,nuxt }) => {
         store.commit('setTopFlg',false)
+        store.commit('setTopPicFlg',false)
+
         //console.log(app.$content(store.state.blog_category1).getAll())
         var contents = store.state.blog_contents
         if(contents.length == 0){
-            //contents = await app.$content("").get("/")
-            //store.commit('setBlogContents',contents)
+            contents = await app.$content("").get("/")
+            store.commit('setBlogContents',contents)
             //route.push('/')
             //window.location.reload();
             //document.location = "/"
             //router.go()
-        }else{
-            var category = store.state.blog_category1
-            if(category == ''){
-                console.log("category get")
-                var category = route.query.id
-            }
-            const result = contents.filter(item => item = store.state.blog_category1)
-            var matched = contents.filter(function(contents) {
-                return contents.tag1.match(store.state.blog_category1);
-            });
-            console.log(matched)
-            //this.contents = store.state.blog_contents
-            //console.log(route.query.id)
-            return{
-                //contents: ( await app.$content(store.state.blog_category1).getAll("")),
-                contents: matched,
-                //app: app,
-            };
         }
+        var category = store.state.blog_category1
+        if(category == ''){
+            console.log("category get")
+            var category = route.query.id
+        }
+        const result = contents.filter(item => item = store.state.blog_category1)
+        var matched = contents.filter(function(contents) {
+            return contents.tag1.match(store.state.blog_category1);
+        });
+        console.log(matched)
+        //this.contents = store.state.blog_contents
+        //console.log(route.query.id)
+        return{
+            //contents: ( await app.$content(store.state.blog_category1).getAll("")),
+            contents: matched,
+            //app: app,
+        };
     },
     created: function() {
         //console.log("ddd")
