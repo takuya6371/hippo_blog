@@ -170,7 +170,7 @@ html {
   height: 630px;
 },
 .title_text_dev{
-  top: 50%;
+  top: 25%;
   height: 50%;
   width: 100%;
   position: absolute;
@@ -195,7 +195,7 @@ html {
 
 
 .main_imgBox {
-    height: 680px;
+    height: 480px;
     overflow: hidden;
     position: relative; 
 }
@@ -213,7 +213,7 @@ html {
     z-index:10;
     opacity: 0;
     width: 100%;
-    height: 680px;
+    height: 480px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
