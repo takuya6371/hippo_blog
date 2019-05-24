@@ -73,13 +73,13 @@ export default {
       mode = "content"
       page_data = await app.$content("").get(route.params.slug)
     }
-    //let list_contents = await app.$content("").get("")
-    //store.dispatch('fetchContents',contents);
-    //store.commit('setBlogContents',contents)
+    let list_contents = await app.$content("").get("/")
+    store.dispatch('fetchContents',list_contents);
+    store.commit('setBlogContents',list_contents)
       return {
         content_mode: mode,
         page:page_data,
-        //list_contents: list_contents
+        list_contents: list_contents
      };
 
 
