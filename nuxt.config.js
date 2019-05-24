@@ -34,9 +34,6 @@ module.exports = {
   /*
   ** Build configuration
   */
-  generate: {
-    routes: dynamicRoutes
-  },
   build: {
     /*
     ** Run ESLint on save
