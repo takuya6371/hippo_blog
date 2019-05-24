@@ -49,7 +49,7 @@ export default {
         var contents = store.state.blog_contents
         console.log(contents.length)
         if(contents.length == 0){
-            contents = await app.$content("").get("/")
+            contents = await app.$content("it").get("/")
             store.commit('setBlogContents',contents)
             //route.push('/')
             //window.location.reload();

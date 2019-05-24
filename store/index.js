@@ -15,12 +15,15 @@ export const state = () => ({
 export const actions = {
   fetchItems({ commit,path }) {
     axios.get(blog_url+path).then((response) => {
+      console.log("acc")
             commit('setBlogContents', { contents: response.data })
     })
   },
-  fetchContents ({ commit,contents }) {
+  async fetchContents ({ commit,contents,app }) {
     //if (req.session.user) {
-      commit('setBlogContents',content)
+      //var aa = await app.$content("").get("/")
+      //console.log("fech"+aa)
+      //commit('setBlogContents',content)
     //}
   }
 }

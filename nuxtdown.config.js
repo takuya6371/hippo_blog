@@ -24,7 +24,7 @@ module.exports = {
       "it",
       {
         page: "/page/_page",
-        permalink: "/:section",
+        permalink: "/:slug",
         isPost: false
       }
     ],
@@ -32,7 +32,7 @@ module.exports = {
       "outdoor",
       {
         page: "/page/_page",
-        permalink: "/:section",
+        permalink: "/:slug",
         isPost: false
       }
     ],
@@ -40,7 +40,7 @@ module.exports = {
       "travel",
       {
         page: "/page/_page",
-        permalink: "/:section",
+        permalink: "/:slug",
         isPost: false
       }
     ],

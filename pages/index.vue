@@ -22,11 +22,9 @@
       <p class="top_title">このブログについて</p>
       <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>
     </div>
-    <!--
     <div class="nav_space">
-      <globalnav v-bind="{'genre': genre}"/>
+      <globalnav v-bind="{'list_contents': list_contents}"/>
     </div>
-    -->
   </section>
 </template>
 
@@ -44,56 +42,35 @@ export default{
         contents: [],
         genre: [],
         //app: '',
+        list_contents: ''
+
     }
   },
   created: function() {
     this.$store.commit('setTopFlg',true)
     this.$store.commit('setTopPicFlg',true)
-    //console.log(this.app)
-    //console.log(this.contents)
-    //this.genre = this.app.$content("").get("/")
+    console.log("indexxxx")
+    console.log(this.$store.state.blog_contents.length)
   },
   fetch: async ({ app, route,store }) => {
     console.log(store.state.blog_contents.length)
+    console.log("index")
     if(store.state.blog_contents.length == 0){
       var contents = await app.$content("").get("/")
-      //store.dispatch('fetchContents',contents);
+      store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)
     }
+    return{
+      list_contents: contents
+    };
 
-
-    /*
-    var genres = []
-    console.log(app)
-    console.log(route)
-    app.$content("").get("/").then(function(res1) {
-
-      var data = res1
-      //console.log(data)
-      //console.log(data.data)
-      var genres_tmp = data
-      genres_tmp.sort(function(a,b){
-        if(a.date > b.date) return -1;
-        if(a.date < b.date) return 1;
-      return 0;
-      });
-      //console.log(genres_tmp)
-      for(var i = 0; i < 5; i++){
-        genres.push(genres_tmp[i])
-      }
-
-      console.log(genres)
-      this.genres = genres
-      return{
-        genre: genres
-      };
-      */
-    /*
-    }.bind(this)).catch(function(err) {
-      console.log(err);
-    }.bind(this));
-    */
-
+  },
+  asyncData: async ({ app, route,store }) => {
+    console.log("anc")
+    var contents = await app.$content("").get("/")
+    return{
+      list_contents: contents
+    };
 
   },
 }

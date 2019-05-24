@@ -1,6 +1,6 @@
 <template>
   <div class="main_nav">
-    <div v-bind:class="{ 'nav_top': isTop, 'nav_not_top': isNotTop }"></div>
+    <!--<div v-bind:class="{ 'nav_top': isTop, 'nav_not_top': isNotTop }"></div>-->
     <div class="latest_nav">
       <p>最新記事</p><br>
  <!--     <div v-for="genre in genres">
@@ -21,7 +21,7 @@
 <script>
 import axios from 'axios'
 export default {
-  //props:['genre'],
+  props:['list_contents'],
   data(){
     return{
         res: '',
@@ -35,14 +35,23 @@ export default {
 
     }
   },
-  created: async function() {
-    var temp_list = this.$store.state.blog_contents
+  asyncData: async ({ app, route, payload,store }) => {
+    console.log("aaaa")
+    if(this.$store.state.blog_contents.length == 0){
+      var contents = app.$content("").get("/")
+      store.dispatch('fetchContents',contents);
+      store.commit('setBlogContents',contents)
+    }
+  },
+  created: function() {
+    console.log(this.list_contents)
+//    var temp_list = this.$store.state.blog_contents
+    var temp_list = this.list_contents
     if(temp_list.length == 0){
-        //contents = await app.$content("").get("/")
-        //store.commit('setBlogContents',contents)
     }else{
       this.setContents(temp_list)
     }
+
     if(this.$store.state.is_top_page){
       this.isNotTop = false
       this.isTop = true
@@ -64,8 +73,8 @@ export default {
   watch: {
     contents(val) {
       console.log("nav_contents_changed")
-      var contents = this.$store.state.blog_contents
-      this.setContents(contents)
+      //var contents = this.$store.state.blog_contents
+      //this.setContents(contents)
     },
     top_flg(val) {
       console.log("topflg change")
@@ -92,8 +101,22 @@ export default {
     this.$router.push(link);
   },
   setContents(contents){
+      var temp_list = []
+      if(contents.length > 0){
+        var genres_tmp = contents
+        genres_tmp.sort(function(a,b){
+          if(a.date > b.date) return -1;
+          if(a.date < b.date) return 1;
+        return 0;
+        });
+        //console.log(genres_tmp)
+        for(var i = 0; i < genres_tmp.length; i++){
+          console.log("aa")
+          temp_list.push(genres_tmp[i])
+        }
+      }
     for(var i = 0; i < 5; i++){
-      this.genres.push(contents[i])
+      this.genres.push(temp_list[i])
     }
   },
 },

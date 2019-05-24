@@ -30,15 +30,17 @@
       </td>
     </tr>
     <tr>
-      <td style="vertical-align: top;width:70%;">
+      <td style="vertical-align: top;width:100%;">
         <div class="main_contents">
           <nuxt/>
         </div>
       </td>
       <td style="width:30%;">
+<!--
         <div class="nav_space">
-          <globalnav/>
+          <globalnav v-bind="{'list': page}"/>
         </div>
+-->
       </td>
     </tr>
     <tr>
@@ -62,6 +64,7 @@ export default {
   data(){
     return{
       top_pic_flg: false,
+      page: '',
     }
   },
   created: function() {
@@ -69,7 +72,6 @@ export default {
     this.$store.commit('setTopFlg',false)
     //console.log(this.contents)
   },
-
   computed: {
       pic_flg() {
         this.top_pic_flg = this.$store.state.is_top_pic_flg
