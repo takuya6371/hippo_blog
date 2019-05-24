@@ -79,7 +79,7 @@ export default {
       return {
         content_mode: mode,
         page:page_data,
-        list_contents: list_contents
+        //list_contents: list_contents
      };
 
 
