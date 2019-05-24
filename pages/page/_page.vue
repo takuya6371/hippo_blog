@@ -69,6 +69,7 @@ export default {
       mode = "list"
       page_data = await app.$content(route.params.slug.toString()).get("/")
     }else{
+      console.log("cont")
       mode = "content"
       page_data = await app.$content("").get(route.params.slug)
     }
