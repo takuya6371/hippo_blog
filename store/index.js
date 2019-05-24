@@ -47,6 +47,7 @@ export const mutations = {
         state.blog_contents = JSON.parse(state.blog_contents)
         console.log("set content"+state.blog_contents)
       })*/
+      /*
       var temp_list = []
       if(contents.length > 0){
         var genres_tmp = contents
@@ -60,9 +61,9 @@ export const mutations = {
           console.log("aa")
           temp_list.push(genres_tmp[i])
         }
-      }
-      state.blog_contents = temp_list
-      //state.blog_contents = contents
+      }*/
+      //state.blog_contents = temp_list
+      state.blog_contents = contents
       //state.blog_contents = JSON.parse(contents)
     },
     setBlogId(state,id) {

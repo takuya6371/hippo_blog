@@ -38,7 +38,7 @@ export default {
   asyncData: async ({ app, route, payload,store }) => {
     console.log("aaaa")
     if(this.$store.state.blog_contents.length == 0){
-      var contents = app.$content("").get("/")
+      //var contents = app.$content("").get("/")
       store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)
     }
@@ -61,21 +61,21 @@ export default {
     }
   },
   computed: {
-    contents() {
+/*    contents() {
       console.log("nav_contents")
       return this.$store.state.blog_contents
-    },
+    },*/
     top_flg() {
       console.log("topflg")
       return this.$store.state.is_top_page
     },
   },
   watch: {
-    contents(val) {
+/*    contents(val) {
       console.log("nav_contents_changed")
       //var contents = this.$store.state.blog_contents
       //this.setContents(contents)
-    },
+    },*/
     top_flg(val) {
       console.log("topflg change")
         if(this.$store.state.is_top_page){
@@ -101,20 +101,28 @@ export default {
     this.$router.push(link);
   },
   setContents(contents){
-      var temp_list = []
-      if(contents.length > 0){
-        var genres_tmp = contents
-        genres_tmp.sort(function(a,b){
-          if(a.date > b.date) return -1;
-          if(a.date < b.date) return 1;
-        return 0;
-        });
-        //console.log(genres_tmp)
-        for(var i = 0; i < genres_tmp.length; i++){
-          console.log("aa")
-          temp_list.push(genres_tmp[i])
-        }
+    console.log("1")
+    console.log(contents)
+    var temp_list = []
+    if(contents.length > 0){
+      var genres_tmp = contents
+      console.log("4")
+/*      genres_tmp.sort(function(a,b){
+        console.log("5")
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+      return 0;
+      });*/
+          console.log("3")
+
+      //console.log(genres_tmp)
+      for(var i = 0; i < genres_tmp.length; i++){
+        console.log("aa")
+        temp_list.push(genres_tmp[i])
       }
+    }
+        console.log("2")
+
     for(var i = 0; i < 5; i++){
       this.genres.push(temp_list[i])
     }

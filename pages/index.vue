@@ -52,6 +52,7 @@ export default{
     console.log("indexxxx")
     console.log(this.$store.state.blog_contents.length)
   },
+  /*
   fetch: async ({ app, route,store }) => {
     console.log(store.state.blog_contents.length)
     console.log("index")
@@ -61,15 +62,19 @@ export default{
       store.commit('setBlogContents',contents)
     }
     return{
-      list_contents: contents
+      list_contents: store.state.blog_contents
     };
 
-  },
+  },*/
   asyncData: async ({ app, route,store }) => {
     console.log("anc")
-    var contents = await app.$content("").get("/")
+    if(store.state.blog_contents.length == 0){
+      var contents = await app.$content("").get("/")
+      store.dispatch('fetchContents',contents);
+      store.commit('setBlogContents',contents)
+    }
     return{
-      list_contents: contents
+      list_contents: store.state.blog_contents
     };
 
   },
