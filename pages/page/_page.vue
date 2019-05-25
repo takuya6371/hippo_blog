@@ -61,9 +61,12 @@ export default {
     let page_data
     //console.log(store.state.blog_category1)
     //console.log(store.state.content_show_flg)
+    console.log(app)
+    console.log(route)
     console.log(route.params.slug)
     //console.log(app.$content(route.params.slug).get(""))
     var content_path;
+    console.log(app.browserBaseURL)
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
       mode = "list"
       page_data = await app.$content(route.params.slug).get("_all")
