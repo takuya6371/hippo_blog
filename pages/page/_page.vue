@@ -67,7 +67,7 @@ export default {
     var content_path;
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
       mode = "list"
-      page_data = await app.$content(route.params.slug.toString()).get("")
+      page_data = await app.$content("").get("/")
     }else{
       console.log("cont")
       mode = "content"

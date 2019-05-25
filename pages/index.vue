@@ -70,7 +70,7 @@ export default{
     console.log("anc")
     if(store.state.blog_contents.length == 0){
       var contents = await app.$content("").get("/")
-    console.log(contents)
+      console.log(contents)
       store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)
     }
