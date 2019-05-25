@@ -21,6 +21,15 @@ module.exports = {
   ],*/
   content: [
     [
+      "",
+      {
+        page: "/page/_page",
+        permalink: "/:slug",
+        isPost: false
+      }
+    ],
+
+    [
       "it",
       {
         page: "/page/_page",
@@ -38,14 +47,6 @@ module.exports = {
     ],
     [
       "travel",
-      {
-        page: "/page/_page",
-        permalink: "/:slug",
-        isPost: false
-      }
-    ],
-    [
-      "",
       {
         page: "/page/_page",
         permalink: "/:slug",
