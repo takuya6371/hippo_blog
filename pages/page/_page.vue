@@ -67,13 +67,13 @@ export default {
     var content_path;
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
       mode = "list"
-      page_data = await app.$content("").get("/")
+      page_data = await app.$content("").get("_all")
     }else{
       console.log("cont")
       mode = "content"
       page_data = await app.$content("").get(route.params.slug)
     }
-    let list_contents = await app.$content("").get("/")
+    let list_contents = await app.$content("").get("_all")
     store.dispatch('fetchContents',list_contents);
     store.commit('setBlogContents',list_contents)
       return {
