@@ -31,5 +31,9 @@
     "eslint-plugin-vue": "^4.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "glob": "^7.1.2"
+  },
+  "resolutions": {
+    "mobx": "^4.1.0",
+    "mobx-react": "^5.0.0"
   }
 }
