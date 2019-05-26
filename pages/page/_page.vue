@@ -66,16 +66,25 @@ export default {
     console.log(route.params.slug)
     //console.log(app.$content(route.params.slug).get(""))
     var content_path;
-    console.log(app.browserBaseURL)
+    console.log(process.env.BASE_URL)
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
       mode = "list"
-      page_data = await app.$content(route.params.slug).get("_all")
+      if(process.env.BASE_URL == 'http://localhost:3000'){
+        page_data = await app.$content("").get("/")
+      }else{
+        page_data = await app.$content(route.params.slug).get("_all")
+      }
     }else{
       console.log("cont")
       mode = "content"
       page_data = await app.$content("").get(route.params.slug)
     }
-    let list_contents = await app.$content("").get("_all")
+    let list_contents
+    if(process.env.BASE_URL == 'http://localhost:3000'){
+      list_contents = await app.$content("").get("")
+    }else{
+      list_contents = await app.$content("").get("_all")
+    }
     store.dispatch('fetchContents',list_contents);
     store.commit('setBlogContents',list_contents)
       return {
@@ -112,7 +121,7 @@ export default {
   },
   created: function(){
     this.$store.commit('setTopFlg',false)
-    this.$store.commit('setTopPicFlg',false)
+    //this.$store.commit('setTopPicFlg',false)
   },
   methods: {
 

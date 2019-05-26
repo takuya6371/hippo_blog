@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-<!--
+
     <div class="main_imgBox">
       <div class="main_img main_img_1" style=""></div>
       <div class="main_img main_img_2" style=""></div>
@@ -17,7 +17,7 @@
       <p class="main_text title_text">Tanzania<br>Kilimanjaro</p>
       <p class="main_text title_text">Lebanon<br>Baalbek</p>
     </div>
--->
+
     <div class="content_div">
       <p class="top_title">このブログについて</p>
       <p>Nuxt × netlifyで作っています。旅の写真やitの勉強内容を残していきます。このサイトもフロントエンドの勉強がてら作りました。</p>

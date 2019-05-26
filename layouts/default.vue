@@ -68,10 +68,10 @@ export default {
     }
   },
   created: function() {
-    console.log("ssss")
+    console.log("default")
     this.$store.commit('setTopFlg',false)
-    //console.log(this.contents)
   },
+/*
   computed: {
       pic_flg() {
         this.top_pic_flg = this.$store.state.is_top_pic_flg
@@ -90,6 +90,7 @@ export default {
         return this.$store.state.is_top_pic_flg
       },
   },
+  */
 
 }
 </script>
