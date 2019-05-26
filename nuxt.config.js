@@ -1,5 +1,6 @@
 module.exports = {
   modules: ["nuxtdown"],
+  mode: 'history',
   env: {
     //base:"",
     //BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
