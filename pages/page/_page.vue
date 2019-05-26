@@ -43,14 +43,20 @@ export default {
         list_contents: '',
     }
 },
-  head: function() {
+  head: function(route) {
+    console.log(this)
+    let head_page = this.$route.params.slug
+    if(head_page == ""){
+      
+    }
     return {
-      title: `${this.page.title}`,
+      //title: `${this.page.title}`,
+      title: this.$route.params.slug,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.page.description
+          //content: this.page.description
         }
       ]
     };
@@ -95,32 +101,6 @@ export default {
         page:page_data,
         list_contents: list_contents
      };
-
-
-    /*
-    if (store.state.content_show_flg ){
-      var content = await app.$content("").get(route.path)
-      console.log(content)
-      content_path = '/'
-      return {
-        page_body: content.body,
-        page_title: content.title,
-        cnotent_show: true,
-        app: app
-      };
-    }else{
-      content_path = route.path
-      var content = await app.$content(store.state.blog_category1).getAll()
-      return {
-        page: content || payload,
-        cnotent_show: store.state.content_show_flg,
-        app: app,
-        cnotent_show: false,
-        //page: (await app.$content("").get("/")) || payload
-      };
-    }*/
-
-
   },
   created: function(){
     this.$store.commit('setTopFlg',false)
