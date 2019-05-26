@@ -7,6 +7,7 @@
         <globalheader/>
       </td>
     </tr>
+    <!--
     <tr v-show="top_pic_flg" style="">
       <td colspan="2">
         <div>
@@ -29,6 +30,7 @@
         </div>
       </td>
     </tr>
+    -->
     <tr>
       <td style="vertical-align: top;width:100%;">
         <div class="main_contents">
@@ -66,10 +68,6 @@ export default {
       top_pic_flg: false,
       page: '',
     }
-  },
-  created: function() {
-    console.log("default")
-    this.$store.commit('setTopFlg',false)
   },
 /*
   computed: {
