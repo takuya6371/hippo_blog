@@ -1,5 +1,4 @@
 module.exports = {
-  mode: 'history',
 
   api: function(isStatic) {
     const baseURL = "http://localhost:3000";
