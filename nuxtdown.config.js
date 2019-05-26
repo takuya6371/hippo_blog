@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'hash',
+  mode: 'history',
 
   api: function(isStatic) {
     const baseURL = "http://localhost:3000";
