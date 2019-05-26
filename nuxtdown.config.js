@@ -8,7 +8,6 @@ module.exports = {
       browserBaseURL,
     };
   },
-  router: { mode: 'hash' },
   content: [
     [
       "",
