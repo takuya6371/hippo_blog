@@ -30,7 +30,6 @@
 
 <script>
 import globalnav from '~/components/globalnav.vue'
-import mobx from "mobx";
 //import axios from 'axios'
 export default{
   //props:['app'],
