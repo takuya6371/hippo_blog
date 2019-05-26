@@ -5,21 +5,10 @@ module.exports = {
     const browserBaseURL = !isStatic ? "" : process.env.BASE_URL;
     return {
       baseURL,
-      browserBaseURL
-      
+      browserBaseURL,
     };
   },
-  /*
-  routes: [
-		{
-			path: "/",
-			name: "index"
-		},
-		{
-			path: "_id/list",
-			name: "list"
-    }
-  ],*/
+  router: { mode: 'hash' },
   content: [
     [
       "",

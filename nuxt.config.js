@@ -1,8 +1,7 @@
 //const webpack = require('webpack')
 module.exports = {
+  router: { mode: 'hash' },
   modules: ["nuxtdown"],
-  mode: 'hash',
-  //mode: "ssr",
   env: {
     //base:"",
     //BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
