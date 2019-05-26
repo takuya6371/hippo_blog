@@ -22,9 +22,11 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="nav_space">
       <globalnav v-bind="{'list_contents': list_contents}"/>
     </div>
+    -->
   </div>
 </template>
 
