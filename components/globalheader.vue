@@ -89,7 +89,6 @@ export default {
       //this.$router.push("list");
     },
     handleScroll: function(evt, el) {
-      //console.log(window.scrollY);
       if(this.$store.state.is_top_page){
         if (window.scrollY  == 0) {
           this.isNotTop = false

@@ -45,13 +45,11 @@ export default {
   },
   created: function() {
     console.log(this.list_contents)
-//    var temp_list = this.$store.state.blog_contents
-    var temp_list = this.list_contents
-    if(temp_list.length == 0){
-    }else{
-      this.setContents(temp_list)
-    }
-
+    let temp_list 
+    temp_list = this.list_contents
+    //this.genres = this.list_contents
+    this.setContents(temp_list)
+    //temp_list = this.$store.state.blog_contents
     if(this.$store.state.is_top_page){
       this.isNotTop = false
       this.isTop = true

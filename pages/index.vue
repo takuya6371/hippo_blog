@@ -66,10 +66,19 @@ export default{
     };
 
   },*/
+
   asyncData: async ({ app, route,store }) => {
     console.log("anc")
     if(store.state.blog_contents.length == 0){
       var contents = await app.$content("").get("/")
+      console.log(contents)
+
+      contents.sort(function(a,b){
+        console.log("5")
+        if(a.date > b.date) return -1;
+        if(a.date < b.date) return 1;
+        return 0;
+      });
       console.log(contents)
       store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)

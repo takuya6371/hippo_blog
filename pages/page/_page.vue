@@ -58,13 +58,10 @@ export default {
   asyncData: async ({ app, route, payload,store }) => {
     let mode
     let page_data
-    //console.log(store.state.blog_category1)
-    //console.log(store.state.content_show_flg)
     console.log("page come")
     console.log(app)
     console.log(route)
     console.log(route.params.slug)
-    //console.log(app.$content(route.params.slug).get(""))
     var content_path;
     console.log(process.env.BASE_URL)
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
@@ -85,6 +82,12 @@ export default {
     }else{
       list_contents = await app.$content("").get("_all")
     }
+    list_contents.sort(function(a,b){
+      if(a.date > b.date) return -1;
+      if(a.date < b.date) return 1;
+      return 0;
+    });
+
     store.dispatch('fetchContents',list_contents);
     store.commit('setBlogContents',list_contents)
       return {
