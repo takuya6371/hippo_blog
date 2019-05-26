@@ -75,7 +75,7 @@ export default {
         page_data = await app.$content("").get("/")
       }else{
             console.log("ls")
-        page_data = await app.$content(route.params.slug).get("_all")
+        page_data = await app.$content(route.query.id).get("_all")
       }
     }else{
       console.log("cont")
