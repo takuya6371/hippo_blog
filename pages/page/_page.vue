@@ -41,13 +41,16 @@ export default {
         page_title: '',
         content_mode: '',
         list_contents: '',
+        page: '',
     }
 },
-  head: function(route) {
+  head: function() {
+    console.log(this.page_body)
     console.log(this)
+    console.log(this.page)
     let head_page = this.$route.params.slug
-    if(head_page == ""){
-      
+    if(this.page == ""){
+      this.$router.push("/")
     }
     return {
       //title: `${this.page.title}`,
