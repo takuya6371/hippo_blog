@@ -41,7 +41,7 @@ export default {
             app: '',
         }
     },
-    asyncData: async ({ app, route,store,router,nuxt }) => {
+    asyncData: async ({ app, route,store,router,nuxt,payload }) => {
         store.commit('setTopFlg',false)
         store.commit('setTopPicFlg',false)
 
