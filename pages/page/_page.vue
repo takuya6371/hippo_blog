@@ -40,7 +40,6 @@ export default {
         page_body: '',
         page_title: '',
         content_mode: '',
-        //app: '',
         list_contents: '',
     }
 },
