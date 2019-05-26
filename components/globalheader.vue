@@ -15,9 +15,9 @@
 -->
 
       <li><nuxt-link class="header_list" :to="{'path':'/'}">Home</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'/page/page', 'query':{'id':'travel'}}">Travel</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'/page/page', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
-      <li><nuxt-link class="header_list" :to="{'path':'/page/page', 'query':{'id':'it'}}">IT</nuxt-link></li>
+      <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'travel'}}">Travel</nuxt-link></li>
+      <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
+      <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'it'}}">IT</nuxt-link></li>
 
 <!--
       <li><nuxt-link @click.native="categoryClear()" class="header_list" :to="'#'">Home</nuxt-link></li>
