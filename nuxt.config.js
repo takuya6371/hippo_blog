@@ -53,6 +53,12 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
+    },
+    generate: {
+      routes: [
+        '/page',
+        '/list'
+      ]
     }
   }
 };
