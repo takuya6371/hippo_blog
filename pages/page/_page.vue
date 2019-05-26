@@ -61,6 +61,7 @@ export default {
     let page_data
     //console.log(store.state.blog_category1)
     //console.log(store.state.content_show_flg)
+    console.log("page come")
     console.log(app)
     console.log(route)
     console.log(route.params.slug)

@@ -13,18 +13,18 @@
       <li><nuxt-link @click.native="setCategry('outdoor')" class="header_list" :to="{'path':'/page/page', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
       <li><nuxt-link @click.native="setCategry('it')" class="header_list" :to="{'path':'/page/page', 'query':{'id':'it'}}">IT</nuxt-link></li>
 -->
-
+<!--
       <li><nuxt-link class="header_list" :to="{'path':'/'}">Home</nuxt-link></li>
       <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'travel'}}">Travel</nuxt-link></li>
       <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'outdoor'}}">Outdoor</nuxt-link></li>
       <li><nuxt-link class="header_list" :to="{'path':'/page', 'query':{'id':'it'}}">IT</nuxt-link></li>
+-->
 
-<!--
       <li><nuxt-link @click.native="categoryClear()" class="header_list" :to="'#'">Home</nuxt-link></li>
       <li><nuxt-link @click.native="" class="header_list" :to="{'path':'/travel'}">Travel</nuxt-link></li>
       <li><nuxt-link @click.native="" class="header_list" :to="{'path':'/outdoor'}">Outdoor</nuxt-link></li>
       <li><nuxt-link @click.native="" class="header_list" :to="{'path':'/it'}">IT</nuxt-link></li>
--->
+
     </ul>
     </td>
     </tr>
