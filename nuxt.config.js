@@ -2,7 +2,7 @@ const webpack = require('webpack')
 module.exports = {
   modules: ["nuxtdown"],
   //mode: 'history',
-  mode: "spa",
+  mode: "ssr",
   env: {
     //base:"",
     //BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
