@@ -56,7 +56,7 @@ export default {
       ]
     };
   },
-  asyncData: async ({ app, route, payload,store }) => {
+  asyncData: async ({ app, route,store,router,nuxt }) => {
     let mode
     let page_data
     //console.log(store.state.blog_category1)
