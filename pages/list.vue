@@ -38,7 +38,6 @@ export default {
             //res: '',
             contents: [],
             //category: '',
-            app: '',
         }
     },
     asyncData: async ({ app, route,store,router,nuxt,payload }) => {
