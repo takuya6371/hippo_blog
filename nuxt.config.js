@@ -1,7 +1,7 @@
 //const webpack = require('webpack')
 module.exports = {
   modules: ["nuxtdown"],
-  mode: 'history',
+  mode: 'ssr',
   //mode: "ssr",
   env: {
     //base:"",
