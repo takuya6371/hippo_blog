@@ -46,11 +46,12 @@ export default {
 },
   head: function() {
     console.log(this.page_body)
-    console.log(this)
+    console.log(this.$route.params.slug)
     console.log(this.page)
     let head_page = this.$route.params.slug
     if(this.page == ""){
       this.$router.push("/")
+      this.$router.push("/"+this.$route.params.slug)
     }
     return {
       //title: `${this.page.title}`,
@@ -76,7 +77,7 @@ export default {
     if(route.params.slug == "outdoor" || route.params.slug == "it" || route.params.slug == "travel"){
       mode = "list"
       if(process.env.BASE_URL == 'http://localhost:3000'){
-        page_data = await app.$content("").get("/")
+        page_data = await app.$content("").get("")
       }else{
         page_data = await app.$content(route.params.slug).get("_all")
       }
