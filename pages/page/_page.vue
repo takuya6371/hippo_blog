@@ -47,7 +47,7 @@ export default {
   head: function() {
     console.log(this.page_body)
     console.log(this.$route.params.slug)
-    console.log(this.page)
+    //console.log(this.page)
     let head_page = this.$route.params.slug
     if(this.page == ""){
       this.$router.push("/")
