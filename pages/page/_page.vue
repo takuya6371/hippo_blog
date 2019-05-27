@@ -82,7 +82,7 @@ export default {
         page_data = await app.$content(route.params.slug).get("_all")
       }
     }else{
-      console.log("cont")
+      //console.log("cont")
       mode = "content"
       page_data = await app.$content("").get(route.params.slug)
     }
