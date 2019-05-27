@@ -51,11 +51,11 @@ export default {
     let head_page = this.$route.params.slug
     if(this.page == ""){
       this.$router.push("/")
-      this.$router.push("/"+this.$route.params.slug)
+      //this.$router.push("/"+this.$route.params.slug)
     }
     return {
-      title: `${this.page.title}`,
-      //title: this.$route.params.slug,
+      //title: `${this.page.title}`,
+      title: this.$route.params.slug,
       meta: [
         {
           hid: "description",
