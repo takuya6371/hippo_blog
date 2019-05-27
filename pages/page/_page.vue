@@ -54,8 +54,8 @@ export default {
       this.$router.push("/"+this.$route.params.slug)
     }
     return {
-      //title: `${this.page.title}`,
-      title: this.$route.params.slug,
+      title: `${this.page.title}`,
+      //title: this.$route.params.slug,
       meta: [
         {
           hid: "description",
