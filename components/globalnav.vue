@@ -7,7 +7,7 @@
         <p class="genre_title">{{genre.genre}}</p>
 -->
         <ul　class="cp_list">
-          <li v-for="post in genres" :key="post.title" class="nav_li">
+       <li v-for="post in genres" class="nav_li">
             <nuxt-link @click.native="toPost(post.meta.section,post.permalink)" class="latest_link" :to="'#'">
               {{post.title}}
             </nuxt-link>
@@ -35,20 +35,34 @@ export default {
 
     }
   },
-  asyncData: async ({ app, route, payload,store }) => {
-    console.log("aaaa")
+  asyncData: async ({ app, route,store }) => {
+
+    console.log(app.list_contents)
     if(this.$store.state.blog_contents.length == 0){
       //var contents = app.$content("").get("/")
       store.dispatch('fetchContents',contents);
       store.commit('setBlogContents',contents)
     }
+    return{
+      genres : route.params
+    };
   },
   created: function() {
-    console.log(this.list_contents)
+    console.log(this.genres)
     let temp_list 
     temp_list = this.list_contents
+    let count
+    if(temp_list.length < 5){
+      count = temp_list.length
+    }else{
+      count = 5      
+    }
+    for(var i = 0; i < count; i++){
+      this.genres.push(temp_list[i])
+    }
+console.log(this.genres)
     //this.genres = this.list_contents
-    this.setContents(temp_list)
+    //this.setContents(temp_list)
     //temp_list = this.$store.state.blog_contents
     if(this.$store.state.is_top_page){
       this.isNotTop = false
