@@ -1,6 +1,6 @@
 //const webpack = require('webpack')
 module.exports = {
-  router: { mode: 'history' },
+  router: { mode: 'hash' },
   modules: ["nuxtdown"],
   env: {
     //base:"",
