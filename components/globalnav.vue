@@ -179,6 +179,7 @@ ul.cp_list {
   padding-left: 0px;
 	padding: 0.5em;
 	list-style-type: none;
+  text-align: -webkit-auto;
 }
 ul.cp_list li {
   padding-left: 0px;
