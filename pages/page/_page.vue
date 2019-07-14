@@ -118,8 +118,8 @@ export default {
 </script>
 <style>
 img{
-    width: 50%;
-    height: 250px;
+    width: 100%;
+    height: 300px;
 }
 .header_list{
     color:black;
@@ -150,5 +150,7 @@ img{
     width: 100%;
     display: flex;
 }
-
+.body{
+  text-align: -webkit-auto;
+}
 </style>
