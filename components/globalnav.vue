@@ -163,6 +163,7 @@ console.log(this.genres)
   width:100%;
   FLOAT: right;
   overflow: hidden;
+  padding-top: 18px;
 }
 .genre_title{
   font-weight: 600;

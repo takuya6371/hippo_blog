@@ -166,7 +166,7 @@ html {
 }
 .nav_space{
   float: right;
-  width: 250px;
+  width: 25%;
   #background-color: #f3f3f3;
   height: 630px;
 },
