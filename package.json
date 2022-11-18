@@ -21,7 +21,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.5",
     "mobx": "^5.9.4",
-    "nuxt": "~2.2.0",
+    "nuxt": "~2.15.8",
     "nuxtdown": "^2.0.3"
   },
   "devDependencies": {
